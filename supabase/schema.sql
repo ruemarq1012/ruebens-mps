@@ -141,6 +141,18 @@ language sql stable security definer set search_path = '' as $$
   select exists (select 1 from public.members where email = lower(trim(p_email)))
 $$;
 
+-- Tells the sign-in screen whether to ask for a password or offer to create one.
+create or replace function public.sign_in_status(p_email text) returns text
+language sql stable security definer set search_path = '' as $$
+  select case
+    when not exists (select 1 from public.members where email = lower(trim(p_email))) then 'not_member'
+    when exists (select 1 from auth.users where lower(email) = lower(trim(p_email))) then 'existing'
+    else 'new'
+  end
+$$;
+revoke all on function public.sign_in_status(text) from public;
+grant execute on function public.sign_in_status(text) to anon, authenticated;
+
 -- ---------------------------------------------------------------------------
 -- Weekly workflow (internal functions do the work; public wrappers check permissions)
 -- ---------------------------------------------------------------------------

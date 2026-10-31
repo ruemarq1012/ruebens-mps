@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import type { Api, Member, Snapshot } from "./types";
+import type { AccountStatus, Api, Member, Snapshot } from "./types";
 
 function must<T>(res: { data: T; error: { message: string } | null }): T {
   if (res.error) throw new Error(res.error.message);
@@ -36,23 +36,30 @@ export function createLiveApi(url: string, key: string): Api {
       });
       return () => data.subscription.unsubscribe();
     },
-    async canSignIn(e) {
-      return must(await sb.rpc("can_sign_in", { p_email: e })) as boolean;
+    async accountStatus(e) {
+      return must(
+        await sb.rpc("sign_in_status", { p_email: e }),
+      ) as AccountStatus;
     },
-    async sendCode(e) {
-      const { error } = await sb.auth.signInWithOtp({
+    async signIn(e, password) {
+      const { error } = await sb.auth.signInWithPassword({
         email: e,
-        options: { shouldCreateUser: true },
+        password,
       });
-      if (error) throw new Error(error.message);
+      if (error)
+        throw new Error(
+          /invalid/i.test(error.message)
+            ? "That password doesn't match. Try again, or ask Rueben to reset it."
+            : error.message,
+        );
     },
-    async verifyCode(e, code) {
-      const { error } = await sb.auth.verifyOtp({
-        email: e,
-        token: code,
-        type: "email",
-      });
+    async createAccount(e, password) {
+      const { data, error } = await sb.auth.signUp({ email: e, password });
       if (error) throw new Error(error.message);
+      if (!data.session)
+        throw new Error(
+          "Your account was created, but Supabase is waiting for an email confirmation. Turn off Confirm email in Supabase, then sign in.",
+        );
     },
     async signOut() {
       await sb.auth.signOut();
@@ -151,13 +158,11 @@ export function createLiveApi(url: string, key: string): Api {
     },
     async saveRating(r) {
       must(
-        await sb
-          .from("ratings")
-          .upsert({
-            ...r,
-            member_email: myEmail(),
-            updated_at: new Date().toISOString(),
-          }),
+        await sb.from("ratings").upsert({
+          ...r,
+          member_email: myEmail(),
+          updated_at: new Date().toISOString(),
+        }),
       );
     },
     async setFavorite(mealId, on) {
@@ -167,14 +172,12 @@ export function createLiveApi(url: string, key: string): Api {
     },
     async saveNote(weekId, body) {
       must(
-        await sb
-          .from("notes")
-          .upsert({
-            week_id: weekId,
-            member_email: myEmail(),
-            body,
-            updated_at: new Date().toISOString(),
-          }),
+        await sb.from("notes").upsert({
+          week_id: weekId,
+          member_email: myEmail(),
+          body,
+          updated_at: new Date().toISOString(),
+        }),
       );
     },
     async setChecked(itemId, checked) {

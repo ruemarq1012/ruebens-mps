@@ -200,11 +200,17 @@ export function createDemoApi(): Api {
       authListeners.add(cb);
       return () => authListeners.delete(cb);
     },
-    async canSignIn(e) {
-      return state.members.some((m) => m.email === e.toLowerCase());
+    async accountStatus(e) {
+      return state.members.some((m) => m.email === e.toLowerCase())
+        ? "existing"
+        : "not_member";
     },
-    async sendCode() {},
-    async verifyCode(e) {
+    async signIn(e) {
+      state.signedIn = e.toLowerCase();
+      save();
+      authListeners.forEach((l) => l(state.signedIn));
+    },
+    async createAccount(e) {
       state.signedIn = e.toLowerCase();
       save();
       authListeners.forEach((l) => l(state.signedIn));

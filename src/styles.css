@@ -1600,3 +1600,8 @@ fieldset.segmented button.on {
     transition: none !important;
   }
 }
+
+.form-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}

@@ -29,10 +29,17 @@ VITE_DEMO=1 npm run dev     # sample data in the browser, no account needed
 npm run build
 ```
 
-## One-time Supabase settings
+## One-time Supabase setting
 
-1. **Sign-in email shows a code**: Authentication → Emails → Templates → *Magic Link*. Make sure the body includes `{{ .Token }}`, for example: `Your Rueben's MPS sign-in code is {{ .Token }}`. The app asks for the code instead of using a link, so sign-in works inside the home-screen app.
-2. **Site URL**: Authentication → URL Configuration → set Site URL to the Vercel address.
+Sign-in is email + password, so Supabase never has to send email (the free plan can't customize its emails).
+
+- Authentication → Sign In / Providers → Email → turn **Confirm email** off.
+
+The first time someone on the guest list signs in, the app asks them to create a password. Only emails in the `members` table get past the email step, and the database rules hide everything from anyone else. To reset a forgotten password, run in the SQL editor:
+
+```sql
+update auth.users set encrypted_password = crypt('new-password-here', gen_salt('bf')) where email = 'name@example.com';
+```
 
 ## Weekly loop
 

@@ -122,14 +122,16 @@ export interface MenuImport {
   groceries?: Array<ShoppingItem & { meals?: string[] }>;
 }
 
+export type AccountStatus = "not_member" | "new" | "existing";
+
 export interface Api {
   mode: "live" | "demo";
   // auth
   currentEmail(): Promise<string | null>;
   onAuthChange(cb: (email: string | null) => void): () => void;
-  canSignIn(email: string): Promise<boolean>;
-  sendCode(email: string): Promise<void>;
-  verifyCode(email: string, code: string): Promise<void>;
+  accountStatus(email: string): Promise<AccountStatus>;
+  signIn(email: string, password: string): Promise<void>;
+  createAccount(email: string, password: string): Promise<void>;
   signOut(): Promise<void>;
   // data
   snapshot(email: string): Promise<Snapshot | null>;
