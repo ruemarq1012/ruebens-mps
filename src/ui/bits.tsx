@@ -287,25 +287,52 @@ export function Sheet({
   tall?: boolean;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const openRef = useRef(open);
+  openRef.current = open;
   useEffect(() => {
     const d = ref.current;
     if (!d) return;
-    if (open && !d.open) d.showModal();
+    if (open && !d.open) {
+      d.showModal();
+      d.scrollTop = 0;
+    }
     if (!open && d.open) d.close();
   }, [open]);
+  // Only treat the dialog's own close (Escape key) as a request to close,
+  // not the close that happens when the app has already hidden it.
+  const requestClose = () => {
+    if (openRef.current) onClose();
+  };
   return (
     <dialog
       ref={ref}
       className={`sheet ${tall ? "sheet-tall" : ""}`}
       aria-label={label}
-      onClose={onClose}
-      onClick={(e) => e.target === ref.current && onClose()}
+      onClose={requestClose}
+      onCancel={(e) => {
+        e.preventDefault();
+        requestClose();
+      }}
+      onClick={(e) => e.target === ref.current && requestClose()}
     >
       {open && (
         <div className="sheet-body">
-          <button className="sheet-close" onClick={onClose} aria-label="Close">
-            <Icon name="close" />
-          </button>
+          <div className="sheet-bar">
+            {tall ? (
+              <button className="sheet-back" onClick={requestClose}>
+                <Icon name="back" size={20} />
+                Back
+              </button>
+            ) : (
+              <button
+                className="sheet-close"
+                onClick={requestClose}
+                aria-label="Close"
+              >
+                <Icon name="close" />
+              </button>
+            )}
+          </div>
           {children}
         </div>
       )}

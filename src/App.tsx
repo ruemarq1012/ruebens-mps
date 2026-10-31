@@ -74,6 +74,31 @@ export default function App({ api }: { api: Api }) {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
+  // Opening a recipe, cook mode or rating adds a history step, so the phone's
+  // back gesture or back button closes it instead of leaving the app.
+  const overlayOpen = !!(mealOpen || rateOpen || cookOpen);
+  useEffect(() => {
+    if (overlayOpen && !history.state?.overlay)
+      history.pushState({ overlay: true }, "");
+  }, [overlayOpen]);
+  useEffect(() => {
+    const onPop = () => {
+      setMealOpen(null);
+      setRateOpen(null);
+      setCookOpen(null);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+  const closeOverlay = useCallback(() => {
+    if (history.state?.overlay) history.back();
+    else {
+      setMealOpen(null);
+      setRateOpen(null);
+      setCookOpen(null);
+    }
+  }, []);
+
   const toast = useCallback((msg: string) => {
     setToastMsg(msg);
     clearTimeout(toastTimer.current);
@@ -164,9 +189,9 @@ export default function App({ api }: { api: Api }) {
           </a>
         ))}
       </nav>
-      <MealSheet state={mealOpen} onClose={() => setMealOpen(null)} />
-      <RateSheet state={rateOpen} onClose={() => setRateOpen(null)} />
-      {cookOpen && <CookMode {...cookOpen} onClose={() => setCookOpen(null)} />}
+      <MealSheet state={mealOpen} onClose={closeOverlay} />
+      <RateSheet state={rateOpen} onClose={closeOverlay} />
+      {cookOpen && <CookMode {...cookOpen} onClose={closeOverlay} />}
       <div
         className={`toast ${toastMsg ? "show" : ""}`}
         role="status"

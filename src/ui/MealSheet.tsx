@@ -11,12 +11,26 @@ export function MealSheet({
 }) {
   return (
     <Sheet open={!!state} onClose={onClose} label="Meal details" tall>
-      {state && <MealDetail mealId={state.mealId} weekId={state.weekId} />}
+      {state && (
+        <MealDetail
+          mealId={state.mealId}
+          weekId={state.weekId}
+          onClose={onClose}
+        />
+      )}
     </Sheet>
   );
 }
 
-function MealDetail({ mealId, weekId }: { mealId: string; weekId?: string }) {
+function MealDetail({
+  mealId,
+  weekId,
+  onClose,
+}: {
+  mealId: string;
+  weekId?: string;
+  onClose: () => void;
+}) {
   const { s, api, run, patch, openCook } = useApp();
   const meal = s.meals.find((m) => m.id === mealId);
   if (!meal) return null;
@@ -223,6 +237,9 @@ function MealDetail({ mealId, weekId }: { mealId: string; weekId?: string }) {
             </ul>
           </section>
         )}
+        <button className="btn btn-block detail-done" onClick={onClose}>
+          Back
+        </button>
         {meal.image_credit && <p className="credit">{meal.image_credit}</p>}
       </div>
     </article>
