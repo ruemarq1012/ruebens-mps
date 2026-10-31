@@ -1,0 +1,204 @@
+{
+  "week": { "label": "Week of Nov 1", "starts_on": "2026-11-01", "pick_by": "2026-10-26" },
+  "chosen": ["honey-garlic-salmon-sheet-pan", "steak-burrito-bowls", "beef-broccoli-stir-fry", "shrimp-tacos-crunchy-slaw"],
+  "cook_order": ["honey-garlic-salmon-sheet-pan", "shrimp-tacos-crunchy-slaw", "beef-broccoli-stir-fry", "steak-burrito-bowls"],
+  "meals": [
+    {
+      "slug": "honey-garlic-salmon-sheet-pan",
+      "name": "Honey-Garlic Salmon Sheet Pan",
+      "style": "oven",
+      "cook_minutes": 25,
+      "servings": 4,
+      "description": "Flaky salmon glazed with honey, garlic and a touch of soy, roasted on one pan with crispy baby potatoes and green beans. Sweet, savoury and almost no cleanup.",
+      "included": ["Salmon fillets", "Baby potatoes", "Green beans", "Honey-garlic glaze", "Lemon wedges"],
+      "on_the_side": "Red pepper flakes",
+      "image_url": "https://images.pexels.com/photos/4013723/pexels-photo-4013723.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Rueben's MPS kitchen",
+      "source_url": null,
+      "ingredients": [
+        { "group": null, "items": ["4 salmon fillets (about 1.5 lb)", "1.5 lb baby potatoes, halved (quartered if large)", "12 oz green beans, trimmed", "3 tbsp olive oil, divided", "Salt and pepper", "1 lemon, cut into wedges"] },
+        { "group": "Honey-garlic glaze", "items": ["3 tbsp honey", "2 tbsp low-sodium soy sauce", "1 tbsp butter, melted", "4 cloves garlic, minced", "1 tbsp lemon juice"] }
+      ],
+      "steps": [
+        "Heat the oven to 425°F. Toss the potatoes with 2 tbsp olive oil, salt and pepper on a large sheet pan. Roast for 12 minutes.",
+        "Meanwhile, whisk together the glaze ingredients. Toss the green beans with the remaining 1 tbsp oil and a pinch of salt.",
+        "Push the potatoes to the edges, add the green beans, and lay the salmon in the middle. Season the salmon with salt and pepper and brush with half the glaze.",
+        "Roast 10–12 minutes, until the salmon flakes easily (145°F).",
+        "Brush the salmon with the rest of the glaze and serve with lemon wedges."
+      ],
+      "leftovers": "Keep in the fridge up to 3 days. Reheat gently in the microwave at half power, or enjoy the salmon cold over greens.",
+      "shopping": [
+        { "name": "Salmon fillets", "qty": 4, "unit": "fillets", "note": "about 1.5 lb", "section": "Meat & seafood" },
+        { "name": "Baby potatoes", "qty": 1.5, "unit": "lb", "section": "Produce" },
+        { "name": "Green beans", "qty": 12, "unit": "oz", "section": "Produce" },
+        { "name": "Lemon", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Garlic", "qty": 4, "unit": "cloves", "section": "Produce" },
+        { "name": "Honey", "pantry": true },
+        { "name": "Low-sodium soy sauce", "pantry": true },
+        { "name": "Butter", "pantry": true },
+        { "name": "Olive oil", "pantry": true },
+        { "name": "Red pepper flakes", "pantry": true }
+      ]
+    },
+    {
+      "slug": "oven-baked-italian-sausage-peppers",
+      "name": "Oven Baked Italian Sausage & Peppers",
+      "style": "oven",
+      "cook_minutes": 30,
+      "servings": 4,
+      "description": "Italian sausages roasted with sweet bell peppers and onions until soft and caramelized (fully cooked, never raw), finished with a little marinara and melted mozzarella. Served with warm garlic bread.",
+      "included": ["Mild Italian sausage", "Red and yellow bell peppers", "Onion (roasted)", "Marinara", "Mozzarella", "Garlic bread"],
+      "on_the_side": "Hot Italian sausage swap or chili flakes",
+      "image_url": "https://images.pexels.com/photos/2901854/pexels-photo-2901854.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "ingredients": [],
+      "steps": [],
+      "shopping": []
+    },
+    {
+      "slug": "steak-burrito-bowls",
+      "name": "Steak Burrito Bowls",
+      "style": "express",
+      "cook_minutes": 25,
+      "servings": 4,
+      "description": "Seared, lightly seasoned steak over garlic-lime rice with black beans, sweet corn, shredded cheese and sour cream. Easy to pack for lunch the next day.",
+      "included": ["Flank or sirloin steak", "Rice", "Black beans", "Corn", "Mexican-blend cheese", "Sour cream", "Lime"],
+      "on_the_side": "Salsa, hot sauce and pickled jalapeños. No cilantro.",
+      "image_url": "https://images.pexels.com/photos/10696501/pexels-photo-10696501.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Rueben's MPS kitchen",
+      "source_url": null,
+      "ingredients": [
+        { "group": null, "items": ["1.5 cups long-grain white rice", "1 tbsp butter", "2 cloves garlic, minced", "1 lime (zest and juice)", "1.5 lb flank or sirloin steak", "1 tbsp neutral oil", "1 can (15 oz) black beans, drained and rinsed", "1 can (15 oz) sweet corn, drained (or 1.5 cups frozen)", "1.5 cups shredded Mexican-blend cheese", "Sour cream, for topping"] },
+        { "group": "Mild steak seasoning", "items": ["1 tsp chili powder", "1 tsp cumin", "1 tsp garlic powder", "1 tsp smoked paprika", "1 tsp salt", "1/2 tsp black pepper"] }
+      ],
+      "steps": [
+        "Melt the butter in a pot, add the garlic for 30 seconds, then cook the rice according to the package. When it's done, stir in the lime zest and juice.",
+        "Pat the steak dry and rub all over with the seasoning.",
+        "Heat the oil in a skillet over medium-high. Sear the steak 4–5 minutes per side for medium (130–135°F). Rest 5 minutes, then slice thin against the grain.",
+        "While the steak rests, warm the beans and corn together in the same skillet for 3–4 minutes with a pinch of salt.",
+        "Build the bowls: rice, beans and corn, steak, cheese and a spoonful of sour cream."
+      ],
+      "leftovers": "Pack the rice, beans and steak together, and keep the cheese and sour cream separate. Microwave 1.5–2 minutes, then add the toppings.",
+      "shopping": [
+        { "name": "Flank or sirloin steak", "qty": 1.5, "unit": "lb", "section": "Meat & seafood" },
+        { "name": "Limes", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Garlic", "qty": 2, "unit": "cloves", "section": "Produce" },
+        { "name": "Black beans", "qty": 1, "unit": "can (15 oz)", "section": "Canned & jarred" },
+        { "name": "Sweet corn", "qty": 1, "unit": "can (15 oz)", "note": "or 1.5 cups frozen", "section": "Canned & jarred" },
+        { "name": "Shredded Mexican-blend cheese", "qty": 8, "unit": "oz", "section": "Dairy" },
+        { "name": "Sour cream", "qty": 8, "unit": "oz", "section": "Dairy" },
+        { "name": "Salsa", "qty": 1, "unit": "jar", "section": "Spice on the side" },
+        { "name": "Pickled jalapeños", "qty": 1, "unit": "jar", "section": "Spice on the side" },
+        { "name": "White rice", "qty": 1.5, "unit": "cups", "pantry": true },
+        { "name": "Butter", "pantry": true },
+        { "name": "Neutral oil (vegetable or canola)", "pantry": true },
+        { "name": "Chili powder, cumin, garlic powder, smoked paprika", "pantry": true },
+        { "name": "Hot sauce", "pantry": true }
+      ]
+    },
+    {
+      "slug": "beef-broccoli-stir-fry",
+      "name": "Beef & Broccoli Stir-Fry",
+      "style": "express",
+      "cook_minutes": 20,
+      "servings": 4,
+      "description": "Tender strips of beef and crisp broccoli in a glossy, savoury garlic-ginger sauce, served over fluffy white rice. Better than takeout and faster too.",
+      "included": ["Sirloin or flank steak", "Broccoli", "Garlic", "Ginger", "Soy-based stir-fry sauce", "Jasmine rice", "Sesame seeds"],
+      "on_the_side": "Chili crisp or sriracha",
+      "image_url": "https://images.pexels.com/photos/105588/pexels-photo-105588.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Rueben's MPS kitchen",
+      "source_url": null,
+      "ingredients": [
+        { "group": null, "items": ["1.5 cups jasmine rice", "1.5 lb flank or sirloin steak, sliced thin against the grain", "1 tbsp cornstarch + 1 tbsp soy sauce (to coat the beef)", "1.5 lb broccoli florets", "2 tbsp neutral oil, divided", "4 cloves garlic, minced", "1 tbsp fresh ginger, grated", "Sesame seeds, for topping"] },
+        { "group": "Stir-fry sauce", "items": ["1/2 cup low-sodium soy sauce", "1/2 cup water", "3 tbsp brown sugar", "1 tbsp oyster sauce (optional)", "1 tbsp cornstarch", "1 tsp toasted sesame oil"] }
+      ],
+      "steps": [
+        "Start the rice according to the package.",
+        "Toss the beef with 1 tbsp cornstarch and 1 tbsp soy sauce. Whisk the sauce ingredients in a bowl.",
+        "In a large skillet, add the broccoli and 1/4 cup water. Cover and steam 3 minutes until bright green and crisp-tender. Remove and wipe the pan dry.",
+        "Heat 1 tbsp oil over high. Sear half the beef in a single layer, about 2 minutes per side. Remove, then repeat with the remaining oil and beef.",
+        "Lower the heat to medium, add the garlic and ginger, and stir 30 seconds. Pour in the sauce and simmer 1–2 minutes until glossy and thick.",
+        "Return the beef and broccoli and toss to coat. Serve over rice with sesame seeds."
+      ],
+      "leftovers": "Keeps up to 4 days. Microwave 1.5–2 minutes, with a splash of water over the rice.",
+      "shopping": [
+        { "name": "Flank or sirloin steak", "qty": 1.5, "unit": "lb", "section": "Meat & seafood" },
+        { "name": "Broccoli", "qty": 1.5, "unit": "lb", "note": "2 large heads or two 12 oz bags of florets", "section": "Produce" },
+        { "name": "Garlic", "qty": 4, "unit": "cloves", "section": "Produce" },
+        { "name": "Fresh ginger", "qty": 1, "unit": "small knob", "section": "Produce" },
+        { "name": "Oyster sauce", "qty": 1, "unit": "small bottle", "note": "optional", "section": "Canned & jarred" },
+        { "name": "Chili crisp", "qty": 1, "unit": "jar", "section": "Spice on the side" },
+        { "name": "White rice", "qty": 1.5, "unit": "cups", "pantry": true },
+        { "name": "Low-sodium soy sauce", "pantry": true },
+        { "name": "Brown sugar", "pantry": true },
+        { "name": "Cornstarch", "pantry": true },
+        { "name": "Neutral oil (vegetable or canola)", "pantry": true },
+        { "name": "Toasted sesame oil", "pantry": true },
+        { "name": "Sesame seeds", "pantry": true },
+        { "name": "Sriracha", "pantry": true }
+      ]
+    },
+    {
+      "slug": "shrimp-tacos-crunchy-slaw",
+      "name": "Shrimp Tacos with Crunchy Slaw",
+      "style": "involved",
+      "cook_minutes": 30,
+      "servings": 4,
+      "description": "Garlic-lime shrimp seared in a hot pan and tucked into warm flour tortillas with a crunchy cabbage-lime slaw, avocado and a cool lime crema.",
+      "included": ["Shrimp", "Flour tortillas", "Shredded cabbage", "Avocado", "Sour cream", "Lime", "Cotija cheese"],
+      "on_the_side": "Creamy chipotle sauce and hot sauce. No cilantro, no raw onion.",
+      "image_url": "https://images.pexels.com/photos/10296433/pexels-photo-10296433.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Rueben's MPS kitchen",
+      "source_url": null,
+      "ingredients": [
+        { "group": null, "items": ["1.5 lb large raw shrimp, peeled and deveined (thawed if frozen)", "1 tsp smoked paprika, 1/2 tsp cumin, 1/2 tsp garlic powder, 1/2 tsp salt", "2 tbsp neutral oil", "3 cloves garlic, minced", "2 limes", "12 small flour tortillas", "2 avocados, sliced", "1/2 cup crumbled cotija"] },
+        { "group": "Crunchy slaw", "items": ["1 bag coleslaw mix (about 14 oz)", "2 tbsp mayonnaise", "1 tbsp lime juice", "1 tsp honey", "Pinch of salt"] },
+        { "group": "Lime crema", "items": ["1/2 cup sour cream", "1 tbsp lime juice", "Pinch of salt"] },
+        { "group": "Chipotle sauce (on the side)", "items": ["1/4 cup sour cream or mayonnaise", "1–2 tsp adobo sauce from the chipotle can (start with 1)"] }
+      ],
+      "steps": [
+        "Stir together the slaw ingredients, the lime crema, and the chipotle sauce in three separate bowls. Refrigerate.",
+        "Pat the shrimp very dry and toss with the paprika, cumin, garlic powder and salt.",
+        "Heat the oil in a large skillet over medium-high. Cook the shrimp in a single layer, 1.5–2 minutes per side, until pink. Add the garlic and a squeeze of lime for the last 30 seconds.",
+        "Warm the tortillas in a dry skillet, 20–30 seconds per side.",
+        "Build the tacos: slaw, shrimp, avocado, cotija and a drizzle of lime crema."
+      ],
+      "leftovers": "Store the shrimp, slaw and toppings separately. Reheat the shrimp for 30–45 seconds, or eat it cold. Slice the avocado fresh for lunch.",
+      "shopping": [
+        { "name": "Large raw shrimp, peeled and deveined", "qty": 1.5, "unit": "lb", "note": "frozen is fine", "section": "Meat & seafood" },
+        { "name": "Small flour tortillas", "qty": 12, "unit": "", "section": "Bread & tortillas" },
+        { "name": "Coleslaw mix", "qty": 1, "unit": "bag (about 14 oz)", "section": "Produce" },
+        { "name": "Avocados", "qty": 2, "unit": "", "section": "Produce" },
+        { "name": "Limes", "qty": 3, "unit": "", "section": "Produce" },
+        { "name": "Garlic", "qty": 3, "unit": "cloves", "section": "Produce" },
+        { "name": "Sour cream", "qty": 8, "unit": "oz", "section": "Dairy" },
+        { "name": "Cotija cheese", "qty": 4, "unit": "oz", "section": "Dairy" },
+        { "name": "Chipotle peppers in adobo", "qty": 1, "unit": "small can", "section": "Spice on the side" },
+        { "name": "Mayonnaise", "pantry": true },
+        { "name": "Honey", "pantry": true },
+        { "name": "Neutral oil (vegetable or canola)", "pantry": true },
+        { "name": "Smoked paprika, cumin, garlic powder", "pantry": true },
+        { "name": "Hot sauce", "pantry": true }
+      ]
+    },
+    {
+      "slug": "classic-chicken-parmesan",
+      "name": "Classic Chicken Parmesan",
+      "style": "involved",
+      "cook_minutes": 30,
+      "servings": 4,
+      "description": "Thin, crispy breaded chicken cutlets topped with marinara and bubbly melted mozzarella and Parmesan, served over spaghetti. The comfort-food pick of the week.",
+      "included": ["Thin chicken cutlets", "Panko breadcrumbs", "Egg", "Marinara", "Mozzarella", "Parmesan", "Spaghetti"],
+      "on_the_side": "Chili flakes",
+      "image_url": "https://images.pexels.com/photos/12866988/pexels-photo-12866988.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "ingredients": [],
+      "steps": [],
+      "shopping": []
+    }
+  ]
+}
