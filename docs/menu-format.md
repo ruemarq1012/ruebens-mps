@@ -53,12 +53,16 @@ Each week Claude delivers one JSON file (saved in `menus/YYYY-MM-DD.json`). Load
 
 ## House rules for every meal
 
+- 8 options per week; the household locks in four.
 - 3 servings (dinner for two plus one lunch), 30–40 minutes.
-- No raw onion, no cilantro. Mild by default; heat goes in `on_the_side`.
+- No raw onion, no cilantro, and never salmon. Mild by default; heat goes in `on_the_side`.
 - Go light on chicken (one chicken dish a week at most).
+- If pork is on the menu, include two pork recipes so they can compare.
+- Noodles, grain bowls, Mexican and tofu are always welcome.
+- No NYT Cooking recipes (no subscription).
 - Bold flavor: every meal has a sauce, glaze, crema or finish with its own ingredient group and a `note` explaining it.
 - Steps are descriptive: heat level, time, and what "done" looks like.
-- One meal per week is the "learn something new" meal (`learn`), still easy.
+- Two meals per week are "learn something new" meals (`learn`), still easy.
 - One flavor hero (`extras.hero`) used in 2+ meals, with other uses listed.
 - Mix cuisines; read the household's questionnaire answers and ratings first.
 - Use `make-extra` and `builds-on` tips when a staple (rice, a sauce, a can) carries across meals.
