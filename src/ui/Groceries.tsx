@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useApp } from "./context";
 import { Avatar, Empty } from "./bits";
-import { currentWeek, formatQty, sectionRank } from "../lib/util";
+import { cookingWeek, formatQty, sectionRank } from "../lib/util";
+import { InstacartCard } from "./Instacart";
 import type { GroceryItem } from "../lib/types";
 
 export function Groceries() {
@@ -13,7 +14,7 @@ export function Groceries() {
       return false;
     }
   });
-  const week = currentWeek(s);
+  const week = cookingWeek(s);
   const items = s.groceries;
 
   const head = (
@@ -122,6 +123,8 @@ export function Groceries() {
           />
         </label>
       </div>
+
+      <InstacartCard week={week} items={items} />
 
       {pantry.length > 0 && (
         <details className="g-section pantry">

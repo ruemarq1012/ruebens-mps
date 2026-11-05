@@ -11,6 +11,7 @@ export const SECTION_ORDER = [
   "Meat & seafood",
   "Dairy",
   "Bread & tortillas",
+  "Pasta & grains",
   "Canned & jarred",
   "Frozen",
   "Spice on the side",
@@ -47,8 +48,48 @@ export function firstName(s: Snapshot, email: string | null | undefined) {
   );
 }
 
+/** The week whose four dinners are being shopped for and cooked. */
+export function cookingWeek(s: Snapshot): Week | undefined {
+  return s.weeks.find((w) => w.status === "locked");
+}
+
+/** A newer menu that's open for picks (can overlap with the cooking week). */
+export function pickingWeek(s: Snapshot): Week | undefined {
+  const cooking = cookingWeek(s);
+  return s.weeks.find(
+    (w) =>
+      w.status === "picking" && (!cooking || w.starts_on > cooking.starts_on),
+  );
+}
+
+/** The most relevant week for summaries: the one being picked, else the one being cooked. */
 export function currentWeek(s: Snapshot): Week | undefined {
-  return s.weeks[0];
+  return pickingWeek(s) ?? cookingWeek(s) ?? s.weeks[0];
+}
+
+const norm = (x: string) =>
+  x
+    .toLowerCase()
+    .replace(/[^a-z ]/g, "")
+    .trim();
+
+/**
+ * Ingredients a meal shares with what's already on (or bought from) the
+ * current grocery list — the "builds on what you have" hint.
+ */
+export function sharedWithGroceries(s: Snapshot, meal: Meal): string[] {
+  // Only shelf-stable things are likely still in the kitchen: sauces, cans,
+  // spices and pantry staples, not last week's fresh steak.
+  const keeps = (x: { pantry?: boolean; section?: string | null }) =>
+    !!x.pantry ||
+    x.section === "Canned & jarred" ||
+    x.section === "Spice on the side" ||
+    x.section === "Pantry";
+  const have = new Set(s.groceries.filter(keeps).map((g) => norm(g.name)));
+  return meal.shopping
+    .filter((i) => keeps(i) && have.has(norm(i.name)))
+    .map((i) => i.name)
+    .filter((n, i, a) => a.indexOf(n) === i);
 }
 
 export function weekMeals(s: Snapshot, weekId: string) {
@@ -113,7 +154,7 @@ export function exportForClaude(s: Snapshot) {
     lines.push(`Current week: ${week.label} (${week.status})`);
     for (const m of s.members) {
       const picked = s.picks
-        .filter((p) => p.member_email === m.email)
+        .filter((p) => p.member_email === m.email && p.week_id === week.id)
         .map((p) => s.meals.find((x) => x.id === p.meal_id)?.name);
       lines.push(
         `- ${m.display_name} picked: ${picked.length ? picked.join(", ") : "nothing yet"}`,
@@ -121,13 +162,22 @@ export function exportForClaude(s: Snapshot) {
     }
     const chosen = list.filter((x) => x.wm.chosen).map((x) => x.meal.name);
     if (chosen.length) lines.push(`- Locked in: ${chosen.join(", ")}`);
-    for (const n of s.notes.filter((n) => n.body.trim()))
+    for (const n of s.notes.filter(
+      (n) => n.week_id === week.id && n.body.trim(),
+    ))
       lines.push(
         `- Request from ${firstName(s, n.member_email)}: ${n.body.trim()}`,
       );
     lines.push("");
   }
-  lines.push("Ratings (newest first):");
+  const cw = cookingWeek(s);
+  for (const q of s.questionnaires.filter((q) => q.week_id === cw?.id)) {
+    const a = q.answers;
+    lines.push(
+      `Planning answers from ${firstName(s, q.member_email)}: cuisines ${a.cuisines?.join(", ") || "-"}; proteins ${a.proteins?.join(", ") || "-"}; flavor ${a.flavor || "-"}; ${a.adventure || ""}; new ingredient: ${a.new_ingredient || "-"}; use up: ${a.use_up || "-"}; avoid: ${a.avoid || "-"}`,
+    );
+  }
+  lines.push("", "Ratings (newest first):");
   const ratings = [...s.ratings].sort((a, b) =>
     b.updated_at.localeCompare(a.updated_at),
   );

@@ -1,9 +1,10 @@
 // A self-contained version of the app's backend that runs in the browser.
 // Used only when the app has no Supabase keys (for previews and testing).
 import week1 from "../../menus/2026-11-01.json";
+import week2 from "../../menus/2026-11-08.json";
 import type { Api, GroceryItem, Meal, MenuImport, Snapshot } from "./types";
 
-const KEY = "mps-demo-v1";
+const KEY = "mps-demo-v2";
 const uid = () => Math.random().toString(36).slice(2, 10);
 
 type State = Omit<Snapshot, "me"> & { signedIn: string | null };
@@ -61,21 +62,26 @@ function importWeek(state: State, p: MenuImport) {
       starts_on: p.week.starts_on,
       pick_by: p.week.pick_by ?? null,
       status: "picking",
+      extras: p.extras ?? {},
     };
     state.weeks.push(week);
   } else {
     week.label = p.week.label;
     week.pick_by = p.week.pick_by ?? null;
+    week.extras = p.extras ?? {};
   }
-  for (const w of state.weeks)
-    if (w.starts_on < week.starts_on) w.status = "done";
   state.weekMeals = state.weekMeals.filter((w) => w.week_id !== week.id);
   p.meals.forEach((m, i) => {
     let meal = state.meals.find((x) => x.slug === m.slug);
     if (meal)
       Object.assign(meal, m, { image_url: m.image_url ?? meal.image_url });
     else {
-      meal = { ...(m as Meal), id: uid() };
+      meal = {
+        ...(m as Meal),
+        tips: m.tips ?? [],
+        learn: m.learn ?? null,
+        id: uid(),
+      };
       state.meals.push(meal);
     }
     state.weekMeals.push({
@@ -117,7 +123,12 @@ function lock(state: State, weekId: string, mealIds: string[]) {
     wm.cook_order = wm.chosen ? n++ : null;
   }
   const w = state.weeks.find((x) => x.id === weekId);
-  if (w) w.status = "locked";
+  if (w) {
+    w.status = "locked";
+    for (const o of state.weeks)
+      if (o.id !== w.id && o.status === "locked" && o.starts_on < w.starts_on)
+        o.status = "done";
+  }
   state.groceries = state.groceries
     .filter((g) => g.week_id !== weekId)
     .concat(buildGroceries(state, weekId));
@@ -163,8 +174,12 @@ function fresh(): State {
     favorites: [],
     notes: [],
     groceries: [],
+    cookChecks: [],
+    questionnaires: [],
+    settings: [],
   };
   importWeek(s, week1 as unknown as MenuImport);
+  importWeek(s, week2 as unknown as MenuImport);
   return s;
 }
 
@@ -187,9 +202,10 @@ export function createDemoApi(): Api {
     listeners.forEach((l) => l());
   };
   const me = () => state.signedIn ?? "you@example.com";
-  const currentWeekId = () =>
-    [...state.weeks].sort((a, b) => b.starts_on.localeCompare(a.starts_on))[0]
-      ?.id;
+  const cookingWeekId = () =>
+    [...state.weeks]
+      .sort((a, b) => b.starts_on.localeCompare(a.starts_on))
+      .find((w) => w.status === "locked")?.id;
 
   return {
     mode: "demo",
@@ -223,15 +239,14 @@ export function createDemoApi(): Api {
     async snapshot(e) {
       const meM = state.members.find((m) => m.email === e);
       if (!meM) return null;
-      const wk = currentWeekId();
+      const wk = cookingWeekId();
       return structuredClone({
         ...state,
         me: meM,
         weeks: [...state.weeks].sort((a, b) =>
           b.starts_on.localeCompare(a.starts_on),
         ),
-        picks: state.picks.filter((p) => p.week_id === wk),
-        notes: state.notes.filter((n) => n.week_id === wk),
+        cookChecks: state.cookChecks.filter((c) => c.week_id === wk),
         groceries: state.groceries
           .filter((g) => g.week_id === wk)
           .sort((a, b) => a.position - b.position),
@@ -295,6 +310,52 @@ export function createDemoApi(): Api {
         g.checked_by = checked ? me() : null;
       }
       save();
+    },
+    async setCookCheck(weekId, mealId, key, on) {
+      state.cookChecks = state.cookChecks.filter(
+        (c) => !(c.week_id === weekId && c.meal_id === mealId && c.key === key),
+      );
+      if (on)
+        state.cookChecks.push({
+          week_id: weekId,
+          meal_id: mealId,
+          key,
+          member_email: me(),
+        });
+      save();
+    },
+    async setCookOrder(weekId, mealIds) {
+      mealIds.forEach((id, i) => {
+        const wm = state.weekMeals.find(
+          (w) => w.week_id === weekId && w.meal_id === id,
+        );
+        if (wm) wm.cook_order = i + 1;
+      });
+      save();
+    },
+    async saveQuestionnaire(weekId, answers) {
+      state.questionnaires = state.questionnaires.filter(
+        (q) => !(q.week_id === weekId && q.member_email === me()),
+      );
+      state.questionnaires.push({
+        week_id: weekId,
+        member_email: me(),
+        answers,
+        updated_at: new Date().toISOString(),
+      });
+      save();
+    },
+    async setInstacart(connected, zip) {
+      state.settings = state.settings.filter((x) => x.member_email !== me());
+      state.settings.push({
+        member_email: me(),
+        instacart_connected_at: connected ? new Date().toISOString() : null,
+        instacart_zip: zip,
+      });
+      save();
+    },
+    async instacartLink() {
+      return null;
     },
     async markCooked(weekId, mealId, cooked) {
       const wm = state.weekMeals.find(

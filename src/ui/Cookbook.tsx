@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useApp } from "./context";
 import { Avatar, Empty, Icon, Photo, Stars } from "./bits";
-import { STYLE_LABEL } from "../lib/util";
 
 type Filter = "favorites" | "made" | "untried";
 
@@ -11,8 +10,13 @@ export function Cookbook() {
     s.favorites.length ? "favorites" : "made",
   );
 
+  const doneWeeks = new Set(
+    s.weeks.filter((w) => w.status === "done").map((w) => w.id),
+  );
   const madeIds = new Set(
-    s.weekMeals.filter((w) => w.chosen).map((w) => w.meal_id),
+    s.weekMeals
+      .filter((w) => w.cooked_at || (w.chosen && doneWeeks.has(w.week_id)))
+      .map((w) => w.meal_id),
   );
   const favIds = new Set(s.favorites.map((f) => f.meal_id));
 
@@ -113,7 +117,7 @@ export function Cookbook() {
                     {favIds.has(m.id) && <Icon name="heart" size={16} filled />}
                   </span>
                   <span className="muted small">
-                    {STYLE_LABEL[m.style]}, {m.cook_minutes} min
+                    {m.cook_minutes} min
                     {times
                       ? `, made ${times === 1 ? "once" : `${times} times`}`
                       : ""}

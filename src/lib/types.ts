@@ -9,7 +9,28 @@ export interface Member {
 
 export interface IngredientGroup {
   group?: string | null;
+  /** What this part (usually a sauce) does for the dish. */
+  note?: string | null;
   items: string[];
+}
+
+export type TipKind =
+  "make-extra" | "builds-on" | "frozen" | "prep-ahead" | "tip";
+export interface Tip {
+  kind: TipKind;
+  text: string;
+}
+
+export interface FlavorHero {
+  name: string;
+  why: string;
+  used_in: string[]; // meal slugs
+  more_uses: string[];
+}
+
+export interface WeekExtras {
+  hero?: FlavorHero | null;
+  notes?: string[];
 }
 
 export interface ShoppingItem {
@@ -39,6 +60,9 @@ export interface Meal {
   steps: string[];
   shopping: ShoppingItem[];
   leftovers: string | null;
+  tips: Tip[];
+  /** Set on the week's "learn something new" meal. */
+  learn: string | null;
 }
 
 export interface Week {
@@ -47,6 +71,7 @@ export interface Week {
   starts_on: string;
   pick_by: string | null;
   status: WeekStatus;
+  extras: WeekExtras;
 }
 
 export interface WeekMeal {
@@ -100,6 +125,36 @@ export interface GroceryItem {
   position: number;
 }
 
+export interface CookCheck {
+  week_id: string;
+  meal_id: string;
+  key: string;
+  member_email: string;
+}
+
+export interface Questionnaire {
+  week_id: string;
+  member_email: string;
+  answers: QuestionnaireAnswers;
+  updated_at: string;
+}
+
+export interface QuestionnaireAnswers {
+  cuisines?: string[];
+  proteins?: string[];
+  flavor?: string;
+  adventure?: string;
+  new_ingredient?: string;
+  use_up?: string;
+  avoid?: string;
+}
+
+export interface MemberSettings {
+  member_email: string;
+  instacart_connected_at: string | null;
+  instacart_zip: string | null;
+}
+
 export interface Snapshot {
   me: Member;
   members: Member[];
@@ -111,11 +166,15 @@ export interface Snapshot {
   favorites: Favorite[];
   notes: Note[];
   groceries: GroceryItem[];
+  cookChecks: CookCheck[];
+  questionnaires: Questionnaire[];
+  settings: MemberSettings[];
 }
 
 /** The JSON a weekly menu is delivered in (see docs/menu-format.md). */
 export interface MenuImport {
   week: { label: string; starts_on: string; pick_by?: string | null };
+  extras?: WeekExtras;
   meals: Array<Omit<Meal, "id">>;
   chosen?: string[];
   cook_order?: string[];
@@ -143,6 +202,23 @@ export interface Api {
   saveNote(weekId: string, body: string): Promise<void>;
   setChecked(itemId: string, checked: boolean): Promise<void>;
   markCooked(weekId: string, mealId: string, cooked: boolean): Promise<void>;
+  setCookCheck(
+    weekId: string,
+    mealId: string,
+    key: string,
+    on: boolean,
+  ): Promise<void>;
+  setCookOrder(weekId: string, mealIds: string[]): Promise<void>;
+  saveQuestionnaire(
+    weekId: string,
+    answers: QuestionnaireAnswers,
+  ): Promise<void>;
+  setInstacart(connected: boolean, zip: string | null): Promise<void>;
+  /** Returns an Instacart shopping-list link, or null when Instacart isn't switched on yet. */
+  instacartLink(
+    title: string,
+    items: Array<{ name: string; display: string }>,
+  ): Promise<string | null>;
   // kitchen admin
   loadWeek(menu: MenuImport): Promise<void>;
   lockWeek(weekId: string, mealIds: string[]): Promise<void>;

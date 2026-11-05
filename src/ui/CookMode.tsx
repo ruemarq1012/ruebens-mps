@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useApp } from "./context";
-import { Icon, MealMeta } from "./bits";
+import { Avatar, Icon, Learn, MealMeta, Tips } from "./bits";
 
 /** Full-screen recipe view: big steps, tick-off ingredients, screen stays on. */
 export function CookMode({
@@ -12,25 +12,16 @@ export function CookMode({
   mealId: string;
   onClose: () => void;
 }) {
-  const { s, api, run, openRate } = useApp();
+  const { s, api, run, patch, openRate } = useApp();
   const meal = s.meals.find((m) => m.id === mealId);
-  const storeKey = `mps-cook-${weekId}-${mealId}`;
-  const [done, setDone] = useState<Record<string, boolean>>(() => {
-    try {
-      return JSON.parse(localStorage.getItem(storeKey) || "{}");
-    } catch {
-      return {};
-    }
-  });
   const [awake, setAwake] = useState(false);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(storeKey, JSON.stringify(done));
-    } catch {
-      /* ignore */
-    }
-  }, [done, storeKey]);
+  // Ticks are shared: whoever ticks an ingredient or step, both phones see it.
+  const checks = s.cookChecks.filter(
+    (c) => c.week_id === weekId && c.meal_id === mealId,
+  );
+  const done: Record<string, string> = Object.fromEntries(
+    checks.map((c) => [c.key, c.member_email]),
+  );
 
   // Keep the screen on while cooking, where the phone supports it.
   useEffect(() => {
@@ -55,7 +46,28 @@ export function CookMode({
   }, []);
 
   if (!meal) return null;
-  const toggle = (k: string) => setDone((d) => ({ ...d, [k]: !d[k] }));
+  const toggle = (k: string) => {
+    const on = !done[k];
+    patch((cur) => ({
+      ...cur,
+      cookChecks: on
+        ? [
+            ...cur.cookChecks,
+            {
+              week_id: weekId,
+              meal_id: mealId,
+              key: k,
+              member_email: cur.me.email,
+            },
+          ]
+        : cur.cookChecks.filter(
+            (c) =>
+              !(c.week_id === weekId && c.meal_id === mealId && c.key === k),
+          ),
+    }));
+    run(() => api.setCookCheck(weekId, mealId, k, on));
+  };
+  const others = s.members.filter((m) => m.email !== s.me.email);
   const stepsDone = meal.steps.filter((_, i) => done[`s${i}`]).length;
 
   return (
@@ -80,17 +92,24 @@ export function CookMode({
       </header>
 
       <div className="cook-scroll">
-        {awake && (
-          <p className="fineprint">
-            Your screen will stay on while this is open.
-          </p>
-        )}
+        <p className="fineprint">
+          {awake ? "Your screen will stay on while this is open. " : ""}
+          Ticks show up on{" "}
+          {others.length
+            ? others.map((m) => m.display_name).join(" and ") + "'s"
+            : "every"}{" "}
+          phone too.
+        </p>
+
+        <Learn text={meal.learn} />
+        <Tips tips={meal.tips} />
 
         <section>
           <h2>Get it ready</h2>
           {meal.ingredients.map((g, gi) => (
             <div key={gi} className="cook-group">
               {g.group && <h3>{g.group}</h3>}
+              {g.note && <p className="group-note">{g.note}</p>}
               <ul className="tick-list">
                 {g.items.map((it, ii) => {
                   const k = `i${gi}-${ii}`;
@@ -103,6 +122,9 @@ export function CookMode({
                           onChange={() => toggle(k)}
                         />
                         <span>{it}</span>
+                        {done[k] && done[k] !== s.me.email && (
+                          <Avatar s={s} email={done[k]} size={20} />
+                        )}
                       </label>
                     </li>
                   );
@@ -133,6 +155,9 @@ export function CookMode({
                       {done[k] ? <Icon name="check" size={20} /> : i + 1}
                     </span>
                     <span>{st}</span>
+                    {done[k] && done[k] !== s.me.email && (
+                      <Avatar s={s} email={done[k]} size={20} />
+                    )}
                   </button>
                 </li>
               );
@@ -170,14 +195,8 @@ export function CookMode({
         <button
           className="btn btn-primary btn-block"
           onClick={async () => {
-            if (await run(() => api.markCooked(weekId, mealId, true))) {
-              try {
-                localStorage.removeItem(storeKey);
-              } catch {
-                /* ignore */
-              }
+            if (await run(() => api.markCooked(weekId, mealId, true)))
               openRate(weekId, mealId);
-            }
           }}
         >
           Done cooking, rate it

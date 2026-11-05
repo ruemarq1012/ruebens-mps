@@ -1,0 +1,403 @@
+{
+  "week": { "label": "Week of Nov 8", "starts_on": "2026-11-08", "pick_by": "2026-11-07" },
+  "extras": {
+    "hero": {
+      "name": "Oyster sauce",
+      "why": "The glossy, savory-sweet flavor behind a lot of Chinese and Thai takeout. One bottle (about $3–4) covers both Asian dishes this week and keeps for months in the fridge once opened.",
+      "used_in": ["thai-basil-pork-pad-kra-pao", "shrimp-fried-rice"],
+      "more_uses": [
+        "Stir 1 tbsp into scrambled eggs or any quick vegetable stir-fry",
+        "Whisk 2 tbsp with 1 tbsp soy sauce and a grated garlic clove as a glaze for roasted broccoli or green beans",
+        "Add a spoonful to burger patties or meatballs for deeper savory flavor",
+        "Toss with noodles, sesame oil and sliced scallions for a 10-minute lunch"
+      ]
+    },
+    "notes": [
+      "Every recipe is now 3 servings: dinner for two plus one lunch.",
+      "Cook rice once, eat it twice: make extra on a rice night and turn it into fried rice later in the week."
+    ]
+  },
+  "meals": [
+    {
+      "slug": "thai-basil-pork-pad-kra-pao",
+      "name": "Thai Basil Pork with Crispy Fried Egg (Pad Kra Pao)",
+      "style": "express",
+      "cook_minutes": 30,
+      "servings": 3,
+      "description": "Thailand's most-ordered street dish: ground pork stir-fried with garlic, shallots and a punchy oyster-and-fish-sauce glaze, tossed with fresh basil and topped with a lacy, crispy-edged fried egg over jasmine rice.",
+      "included": ["Ground pork", "Thai basil", "Shallots and garlic", "Oyster and fish sauce glaze", "Eggs", "Jasmine rice"],
+      "on_the_side": "Sliced Thai chilies or chili crisp",
+      "learn": "Two Thai techniques in one dinner. First, balancing a stir-fry sauce: fish sauce brings salt and savory depth, oyster sauce brings sweetness and body, and a little sugar ties them together. Most takeout stir-fries start from this same base. Second, kai dao, the Thai fried egg: very hot oil spooned over the white makes crispy, lacy edges while the yolk stays runny.",
+      "image_url": "https://images.pexels.com/photos/12100417/pexels-photo-12100417.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "The Woks of Life",
+      "source_url": "https://thewoksoflife.com/pad-kra-pao/",
+      "tips": [
+        { "kind": "make-extra", "text": "Cook 2 cups of dry rice instead of 1 (with 2½ cups water). Cool the extra uncovered for 15 minutes, then refrigerate it for the Shrimp Fried Rice later in the week." },
+        { "kind": "tip", "text": "Can't find Thai basil? Regular Italian basil works. It's a little sweeter and less peppery." },
+        { "kind": "tip", "text": "Fish sauce smells strong in the bottle but cooks into savory depth, not fishiness. You'll use it again in the fried rice, and a few drops brighten dressings, marinades and soups." }
+      ],
+      "ingredients": [
+        { "group": null, "items": [
+          "1 cup jasmine rice (2 cups if making extra for fried rice)",
+          "1 lb ground pork",
+          "2 shallots, thinly sliced",
+          "6 cloves garlic, thinly sliced",
+          "1½ packed cups Thai basil leaves (or Italian basil), stems removed",
+          "¼ cup water or low-sodium chicken broth",
+          "3 large eggs",
+          "¼ cup + 2 tbsp neutral oil, divided"
+        ] },
+        { "group": "Kra pao sauce", "note": "Salty, savory-sweet and deep. Fish sauce brings the salt and savory depth, oyster sauce rounds it out with sweetness and body, dark soy adds color and a molasses note, and sugar ties it together. Mix it before you start: the stir-fry moves fast.", "items": [
+          "1 tbsp oyster sauce",
+          "1 tbsp fish sauce",
+          "1 tbsp low-sodium soy sauce",
+          "2 tsp dark soy sauce (or 1 more tsp regular soy + ½ tsp brown sugar)",
+          "1 tsp sugar"
+        ] }
+      ],
+      "steps": [
+        "Start the rice. Put the rice in a bowl of cold water, swish with your hand, and pour off the cloudy water. Repeat 2–3 times until the water is mostly clear (this washes off loose starch so the rice isn't gummy). Add the rice to a pot with 1¼ cups water (2½ cups if making extra) and a pinch of salt. Bring to a boil, cover, turn the heat to low and cook 15 minutes. Turn off the heat and leave it covered for 10 more minutes.",
+        "Make the sauce and prep. In a small bowl, stir the oyster sauce, fish sauce, soy sauce, dark soy sauce and sugar until the sugar dissolves. Thinly slice the shallots and garlic, and pick the basil leaves off their stems.",
+        "Fry the eggs. Heat ¼ cup oil in a large nonstick skillet or wok over medium-high for about 2 minutes, until a drop of water sizzles hard. Crack one egg into a small cup and slide it into the oil; it should bubble and puff right away. Tilt the pan and spoon hot oil over the white (not the yolk) for 1–2 minutes, until the edges are brown and lacy and the white is set but the yolk is still soft. Move it to a paper towel and repeat with the other eggs. Carefully pour off all but 2 tablespoons of oil.",
+        "Cook the aromatics. Keep the heat at medium-high. Add the shallots and garlic and stir constantly for 2–3 minutes, until the shallots are soft and the garlic is pale gold. Don't let the garlic go brown; burnt garlic tastes bitter.",
+        "Brown the pork. Turn the heat to high and add the pork. Break it into small crumbles with your spatula, then leave it alone for 2 minutes so the bottom browns. Stir, break it up more, and repeat for 5–6 minutes total, until there's no pink left and some bits are crispy.",
+        "Add the sauce. Pour the sauce around the edge of the pan (it sizzles and caramelizes slightly), stir to coat the pork, then add the ¼ cup water or broth. Let it bubble for about 1 minute, until almost all the liquid is gone and the pork looks glossy.",
+        "Add the basil. Turn off the heat, add the basil and toss for 20–30 seconds, just until it wilts. The leftover heat is enough, and it keeps the basil fragrant.",
+        "Serve. Spoon rice into bowls, top with the pork, and set a fried egg on each. Break the yolk so it runs into the rice like a sauce. Put the chilies on the table for whoever wants heat."
+      ],
+      "leftovers": "The pork keeps 3 days in the fridge. For lunch, reheat it with the rice for 2 minutes in the microwave; fry a fresh egg if you have time, or skip it.",
+      "shopping": [
+        { "name": "Ground pork", "qty": 1, "unit": "lb", "section": "Meat & seafood" },
+        { "name": "Shallots", "qty": 2, "unit": "", "section": "Produce" },
+        { "name": "Garlic", "qty": 6, "unit": "cloves", "section": "Produce" },
+        { "name": "Thai basil", "qty": 1, "unit": "bunch", "note": "or Italian basil", "section": "Produce" },
+        { "name": "Eggs", "qty": 3, "unit": "", "section": "Dairy" },
+        { "name": "Oyster sauce", "unit": "", "note": "1 bottle covers the week", "section": "Canned & jarred" },
+        { "name": "Fish sauce", "unit": "", "note": "1 small bottle covers the week", "section": "Canned & jarred" },
+        { "name": "Dark soy sauce", "unit": "", "note": "optional, 1 bottle covers the week", "section": "Canned & jarred" },
+        { "name": "Thai chilies", "qty": 1, "unit": "small pack", "section": "Spice on the side" },
+        { "name": "White rice", "qty": 1, "unit": "cups", "pantry": true },
+        { "name": "Low-sodium soy sauce", "pantry": true },
+        { "name": "Neutral oil (vegetable or canola)", "pantry": true },
+        { "name": "Sugar", "pantry": true }
+      ]
+    },
+    {
+      "slug": "shrimp-fried-rice",
+      "name": "Shrimp Fried Rice",
+      "style": "express",
+      "cook_minutes": 25,
+      "servings": 3,
+      "description": "Better than takeout: seared shrimp, soft scrambled eggs, peas and carrots, and toasty rice coated in an oyster-sauce seasoning with a little sesame. Built to use up leftover rice.",
+      "included": ["Shrimp", "Day-old rice", "Eggs", "Peas and carrots", "Scallions", "Oyster sauce seasoning"],
+      "on_the_side": "Chili crisp or sriracha",
+      "learn": null,
+      "image_url": "https://images.pexels.com/photos/13425806/pexels-photo-13425806.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "The Woks of Life",
+      "source_url": "https://thewoksoflife.com/shrimp-fried-rice/",
+      "tips": [
+        { "kind": "builds-on", "text": "Uses the extra rice from the pad kra pao or salmon night. No leftovers? Cook 1½ cups of rice, spread it on a sheet pan and let it cool 15 minutes before frying." },
+        { "kind": "frozen", "text": "Thaw frozen shrimp overnight in the fridge, or seal them in a zip-top bag and submerge in cold water for 15–20 minutes. Pat them very dry: wet shrimp steam instead of searing." }
+      ],
+      "ingredients": [
+        { "group": null, "items": [
+          "3 cups cooked rice, ideally cold from the fridge",
+          "¾ lb large shrimp, peeled and deveined",
+          "3 large eggs, beaten with a pinch of salt",
+          "1 small yellow onion, diced",
+          "1 cup frozen peas and carrots",
+          "2 scallions, thinly sliced",
+          "3 tbsp neutral oil, divided"
+        ] },
+        { "group": "Fried rice seasoning", "note": "Fried rice should be seasoned, not soggy, so a small amount of concentrated sauce coats every grain. Oyster sauce gives the savory-sweet takeout flavor, soy adds salt and color, fish sauce adds depth, and sesame oil plus white pepper are the classic finishing aroma.", "items": [
+          "1 tbsp oyster sauce",
+          "1 tbsp low-sodium soy sauce",
+          "1 tsp dark soy sauce (optional, for color)",
+          "½ tsp fish sauce (optional)",
+          "½ tsp sugar",
+          "½ tsp toasted sesame oil",
+          "¼ tsp white pepper (or black pepper)"
+        ] }
+      ],
+      "steps": [
+        "Prep everything first; fried rice moves fast. Break up any clumps of cold rice with wet hands so every grain is separate. Pat the shrimp very dry and toss with a pinch of salt. Stir all the seasoning ingredients together in a small bowl.",
+        "Scramble the eggs. Heat 1 tbsp oil in a large skillet or wok over medium-high. Pour in the eggs and stir gently with a spatula for about 1 minute, until just set but still shiny. Slide them onto a plate.",
+        "Sear the shrimp. Add 1 tbsp oil and heat until it shimmers and just starts to smoke. Lay the shrimp in a single layer and don't touch them for 1 minute so they brown. Flip and cook 30–60 seconds more, until pink. Move them to the plate with the eggs (they'll finish cooking later).",
+        "Cook the onion. Add the last 1 tbsp oil and the onion. Cook 2–3 minutes, stirring, until soft and golden at the edges. Add the peas and carrots and cook 1 minute more.",
+        "Toast the rice. Turn the heat to high and add the rice. Press it flat into the pan and let it sit for 30 seconds so it toasts, then toss. Repeat for 3–4 minutes, until the rice is hot and some grains are a little crisp. If the rice is very dry, sprinkle in 1 tbsp water and cover for 1 minute.",
+        "Season. Pour the seasoning around the edge of the pan and toss for about 1 minute, until every grain is evenly light brown.",
+        "Finish. Add the shrimp and eggs back in (break the eggs into bite-size pieces) along with most of the scallions. Toss 30 seconds, until everything's hot. Taste and add a splash more soy if it needs salt. Top with the rest of the scallions."
+      ],
+      "leftovers": "Keeps 3 days in the fridge. Reheat in a hot skillet for the best texture, or microwave 1½–2 minutes with a splash of water.",
+      "shopping": [
+        { "name": "Large raw shrimp, peeled and deveined", "qty": 0.75, "unit": "lb", "note": "frozen is fine", "section": "Meat & seafood" },
+        { "name": "Eggs", "qty": 3, "unit": "", "section": "Dairy" },
+        { "name": "Yellow onion", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Scallions", "qty": 1, "unit": "bunch", "section": "Produce" },
+        { "name": "Frozen peas and carrots", "qty": 1, "unit": "bag", "section": "Frozen" },
+        { "name": "Oyster sauce", "unit": "", "note": "1 bottle covers the week", "section": "Canned & jarred" },
+        { "name": "Fish sauce", "unit": "", "note": "1 small bottle covers the week", "section": "Canned & jarred" },
+        { "name": "Dark soy sauce", "unit": "", "note": "optional, 1 bottle covers the week", "section": "Canned & jarred" },
+        { "name": "Chili crisp", "qty": 1, "unit": "jar", "note": "skip if you have last week's", "section": "Spice on the side" },
+        { "name": "White rice", "qty": 1.5, "unit": "cups", "note": "only if you don't have leftovers", "pantry": true },
+        { "name": "Low-sodium soy sauce", "pantry": true },
+        { "name": "Toasted sesame oil", "pantry": true },
+        { "name": "Neutral oil (vegetable or canola)", "pantry": true },
+        { "name": "Sugar", "pantry": true }
+      ]
+    },
+    {
+      "slug": "steak-fajitas-chipotle-crema",
+      "name": "Steak Fajitas with Chipotle Crema",
+      "style": "express",
+      "cook_minutes": 30,
+      "servings": 3,
+      "description": "Smoky, sizzling flank steak and charred peppers and onions in warm flour tortillas, finished with a cool, tangy chipotle-lime crema. Same flavors as the burrito bowls you both loved, in taco form.",
+      "included": ["Flank steak", "Bell peppers", "Onion", "Flour tortillas", "Avocado", "Chipotle-lime crema"],
+      "on_the_side": "Extra adobo sauce, hot sauce or pickled jalapeños",
+      "learn": null,
+      "image_url": "https://images.pexels.com/photos/2015191/pexels-photo-2015191.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Dinner, then Dessert",
+      "source_url": "https://dinnerthendessert.com/steak-fajitas/",
+      "tips": [
+        { "kind": "builds-on", "text": "Uses the can of chipotles in adobo from last week. Opened, it keeps about 2 weeks in a sealed container in the fridge; freeze the rest flat in a zip-top bag and break off what you need." },
+        { "kind": "tip", "text": "Not sure which way the grain runs? Look for the long parallel lines on the raw steak and slice across them. It's the difference between tender and chewy." }
+      ],
+      "ingredients": [
+        { "group": null, "items": [
+          "1¼ lb flank or skirt steak",
+          "3 bell peppers (mixed colors), sliced ¼ inch thick",
+          "1 yellow onion, sliced ¼ inch thick",
+          "2 tbsp neutral oil, divided",
+          "8 small flour tortillas",
+          "1 avocado, sliced",
+          "½ lime"
+        ] },
+        { "group": "Fajita seasoning", "note": "A dry rub that also builds a sauce. Smoked paprika and cumin give the smoky restaurant-fajita flavor without heat, the sugar helps the steak brown, and the cornstarch makes the spices cling and turns the pan juices glossy at the end.", "items": [
+          "2 tsp chili powder",
+          "1 tsp smoked paprika",
+          "1 tsp ground cumin",
+          "½ tsp garlic powder",
+          "1 tsp kosher salt",
+          "1 tsp sugar",
+          "2 tsp cornstarch"
+        ] },
+        { "group": "Chipotle crema", "note": "Cool, smoky and tangy; this is what makes the dish pop. The adobo sauce (the red sauce in the chipotle can) carries the smoke with gentle heat, lime brightens it, and a little honey softens the edges. Start mild and taste.", "items": [
+          "½ cup sour cream",
+          "1 tsp adobo sauce from the chipotle can (up to 2 tsp)",
+          "1 tbsp lime juice",
+          "½ tsp honey",
+          "Pinch of salt",
+          "1–2 tsp water, to thin"
+        ] }
+      ],
+      "steps": [
+        "Make the crema. Whisk the sour cream, 1 tsp adobo sauce, lime juice, honey and salt. Add water a teaspoon at a time until it drizzles. Taste: add more adobo for more smoke and heat. Refrigerate until serving.",
+        "Season. Stir the fajita seasoning together. Pat the steak dry with paper towels and rub it all over with 1 tbsp oil and two-thirds of the seasoning. In a large bowl, toss the peppers and onion with the remaining 1 tbsp oil and the rest of the seasoning.",
+        "Sear the steak. Heat a large cast-iron or heavy skillet over medium-high for about 3 minutes, until the pan is very hot and you see wisps of smoke. Lay the steak in, away from you. Don't move it for 4–5 minutes, until a dark crust forms. Flip and cook 4–5 minutes more for medium (130–135°F in the thickest part). Move it to a cutting board and rest 5–10 minutes so the juices settle.",
+        "Char the vegetables. Use the same pan without cleaning it; the browned bits are flavor. Over medium-high, add the peppers and onion in an even layer. Cook 6–8 minutes, stirring every minute or so, until soft with charred edges. At the end, add 2 tbsp water and scrape the bottom of the pan. The cornstarch in the seasoning turns it into a light glaze.",
+        "Slice the steak. Cut it into thin strips across the grain. Add the strips and any juices from the board to the vegetables, squeeze the half lime over, and toss.",
+        "Warm the tortillas. Heat each in a dry skillet for 20–30 seconds per side, or wrap the stack in a damp paper towel and microwave for 30 seconds.",
+        "Build. Tortilla, steak and peppers, avocado slices, and a drizzle of chipotle crema."
+      ],
+      "leftovers": "Store the steak-and-pepper mixture separately from the crema and tortillas. Reheat the filling in a skillet for 2–3 minutes, or make it a lunch bowl over rice.",
+      "shopping": [
+        { "name": "Flank or sirloin steak", "qty": 1.25, "unit": "lb", "note": "flank or skirt is best", "section": "Meat & seafood" },
+        { "name": "Bell peppers", "qty": 3, "unit": "", "section": "Produce" },
+        { "name": "Yellow onion", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Avocados", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Limes", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Small flour tortillas", "qty": 8, "unit": "", "section": "Bread & tortillas" },
+        { "name": "Sour cream", "qty": 8, "unit": "oz", "section": "Dairy" },
+        { "name": "Chipotle peppers in adobo", "unit": "", "note": "use last week's can if you still have it", "section": "Canned & jarred" },
+        { "name": "Chili powder, cumin, garlic powder, smoked paprika", "pantry": true },
+        { "name": "Cornstarch", "pantry": true },
+        { "name": "Honey", "pantry": true },
+        { "name": "Sugar", "pantry": true },
+        { "name": "Neutral oil (vegetable or canola)", "pantry": true },
+        { "name": "Hot sauce", "pantry": true }
+      ]
+    },
+    {
+      "slug": "linguine-shrimp-scampi",
+      "name": "Linguine with Shrimp Scampi",
+      "style": "involved",
+      "cook_minutes": 25,
+      "servings": 3,
+      "description": "Barefoot Contessa's classic: plump shrimp in a lemony garlic-butter sauce with lots of fresh parsley, tossed with linguine until every strand is glossy.",
+      "included": ["Shrimp", "Linguine", "Garlic", "Lemon", "Butter", "Fresh parsley"],
+      "on_the_side": "Red pepper flakes",
+      "learn": null,
+      "image_url": "https://images.pexels.com/photos/13322666/pexels-photo-13322666.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Barefoot Contessa",
+      "source_url": "https://barefootcontessa.com/recipes/linguine-with-shrimp-scampi",
+      "tips": [
+        { "kind": "frozen", "text": "Thaw frozen shrimp overnight in the fridge, or seal them in a zip-top bag and submerge in cold water for 15–20 minutes. Pat them very dry before cooking." },
+        { "kind": "tip", "text": "Save a mug of pasta water before you drain. The starch in it is what turns butter and lemon into a sauce that clings instead of pooling." }
+      ],
+      "ingredients": [
+        { "group": null, "items": [
+          "¾ lb linguine",
+          "1 lb large shrimp, peeled and deveined",
+          "½ cup chopped flat-leaf parsley",
+          "Kosher salt and black pepper",
+          "½ lemon, thinly sliced, for serving"
+        ] },
+        { "group": "Lemon-garlic butter sauce", "note": "Scampi sauce is only butter, olive oil, garlic and lemon, so technique is everything. The garlic cooks gently so it turns sweet instead of bitter, the lemon goes in off the heat so it stays bright, and a splash of starchy pasta water makes the butter coat the noodles.", "items": [
+          "3 tbsp unsalted butter",
+          "3 tbsp olive oil",
+          "5 cloves garlic, minced (about 1½ tbsp)",
+          "Zest of 1 lemon",
+          "¼ cup fresh lemon juice (about 2 lemons)",
+          "½ cup reserved pasta water"
+        ] }
+      ],
+      "steps": [
+        "Boil the pasta water. Bring a large pot of water to a boil with 1 tbsp kosher salt. Add the linguine and cook 1 minute less than the package says (usually 8–9 minutes). Before draining, scoop out 1 cup of the pasta water with a mug.",
+        "Prep while the water heats. Pat the shrimp very dry and season with ½ tsp salt and ¼ tsp pepper. Mince the garlic, chop the parsley, and zest the lemon before you juice it (zesting is much harder after).",
+        "Cook the garlic gently. In a 12-inch skillet over medium-low heat, melt the butter with the olive oil. Add the garlic and stir for 1–2 minutes, until it smells fragrant and the edges are pale gold. Don't let it brown.",
+        "Cook the shrimp. Turn the heat to medium and add the shrimp in a single layer. Cook about 2 minutes per side, until pink and curled into a loose C shape. (A tight O means overcooked.)",
+        "Brighten off the heat. Take the pan off the heat and stir in the lemon zest, lemon juice and parsley.",
+        "Bring it together. Add the drained linguine and ½ cup pasta water to the skillet. Set it over low heat and toss with tongs for about 1 minute, until the sauce turns slightly creamy and coats the noodles. Add more pasta water a splash at a time if it looks dry. Taste and add salt if needed.",
+        "Serve with lemon slices, black pepper and red pepper flakes on the side."
+      ],
+      "leftovers": "Best fresh. Leftovers keep 2 days; reheat gently in a skillet with a splash of water and a squeeze of lemon so the shrimp doesn't toughen.",
+      "shopping": [
+        { "name": "Large raw shrimp, peeled and deveined", "qty": 1, "unit": "lb", "note": "frozen is fine", "section": "Meat & seafood" },
+        { "name": "Linguine", "qty": 1, "unit": "box", "section": "Pasta & grains" },
+        { "name": "Lemons", "qty": 2, "unit": "", "section": "Produce" },
+        { "name": "Flat-leaf parsley", "qty": 1, "unit": "bunch", "section": "Produce" },
+        { "name": "Garlic", "qty": 5, "unit": "cloves", "section": "Produce" },
+        { "name": "Butter", "pantry": true },
+        { "name": "Olive oil", "pantry": true },
+        { "name": "Red pepper flakes", "pantry": true }
+      ]
+    },
+    {
+      "slug": "sheet-pan-gnocchi-sausage-peppers",
+      "name": "Sheet-Pan Gnocchi with Sausage and Peppers",
+      "style": "oven",
+      "cook_minutes": 40,
+      "servings": 3,
+      "description": "No boiling: gnocchi roasts right on the pan with Italian sausage, sweet peppers and red onion until crispy outside and pillowy inside, then gets tossed with garlic butter, Parmesan and lemon. Warm marinara on the side for dipping.",
+      "included": ["Potato gnocchi", "Italian sausage", "Bell peppers", "Red onion (roasted)", "Parmesan", "Marinara"],
+      "on_the_side": "Hot Italian sausage instead of mild, or red pepper flakes",
+      "learn": null,
+      "image_url": "https://images.pexels.com/photos/6659628/pexels-photo-6659628.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Cook the Story",
+      "source_url": "https://cookthestory.com/sheet-pan-sausage-and-peppers-with-gnocchi/",
+      "tips": [
+        { "kind": "tip", "text": "Buy shelf-stable gnocchi (in the pasta aisle, usually vacuum-packed). It crisps best on a sheet pan and doesn't need boiling. Frozen works too, straight from the freezer." },
+        { "kind": "builds-on", "text": "Uses the same parsley and lemons as the shrimp scampi if you pick both." }
+      ],
+      "ingredients": [
+        { "group": null, "items": [
+          "1 lb shelf-stable potato gnocchi",
+          "12 oz mild Italian sausage links, cut into 1-inch pieces",
+          "2 bell peppers, sliced ½ inch thick",
+          "1 red onion, cut into ½-inch wedges",
+          "3 tbsp olive oil",
+          "½ tsp salt and ½ tsp black pepper",
+          "½ cup marinara, warmed, for serving (optional)"
+        ] },
+        { "group": "Garlic-Parmesan finish", "note": "Roasting gives you crispy, browned edges; this finish gives it the punch. Garlic butter and Parmesan melt onto the hot gnocchi and cling like a light sauce, and lemon and parsley wake everything up.", "items": [
+          "1 tbsp butter",
+          "1 clove garlic, finely grated",
+          "½ cup grated Parmesan",
+          "2 tbsp chopped flat-leaf parsley",
+          "Juice of ½ lemon"
+        ] }
+      ],
+      "steps": [
+        "Heat the oven. Set a rack in the upper-middle position and heat the oven to 425°F. That's a little hotter than the original recipe, for crispier gnocchi.",
+        "Toss on the pan. On a large rimmed sheet pan, toss the gnocchi (break apart any that are stuck together), peppers and onion with the olive oil, salt and pepper. Spread everything in a single layer; crowded gnocchi steam instead of crisping, so use two pans if needed.",
+        "Add the sausage. Nestle the sausage pieces in among the gnocchi and vegetables.",
+        "Roast and flip. Roast 15 minutes. Take the pan out, flip and stir everything with a spatula, then roast 12–15 minutes more, until the gnocchi are golden with crisp edges, the onion is soft and sweet, and the sausage is browned with no pink inside (160°F).",
+        "Make the garlic butter. While it roasts, microwave the butter with the grated garlic for 20–30 seconds, until melted and fragrant. Warm the marinara too, if using.",
+        "Finish on the pan. Right out of the oven, drizzle the garlic butter over everything, scatter on the Parmesan, and toss so the cheese melts onto the hot gnocchi. Squeeze the lemon over and sprinkle with parsley.",
+        "Serve with warm marinara on the side for spooning over or dipping."
+      ],
+      "leftovers": "Keeps 3 days. Reheat on a sheet pan at 400°F for 8–10 minutes to bring back the crispy edges (the microwave makes gnocchi soft).",
+      "shopping": [
+        { "name": "Mild Italian sausage", "qty": 12, "unit": "oz", "section": "Meat & seafood" },
+        { "name": "Shelf-stable potato gnocchi", "qty": 1, "unit": "lb", "section": "Pasta & grains" },
+        { "name": "Bell peppers", "qty": 2, "unit": "", "section": "Produce" },
+        { "name": "Red onion", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Lemons", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Flat-leaf parsley", "unit": "bunch", "note": "a few sprigs", "section": "Produce" },
+        { "name": "Garlic", "qty": 1, "unit": "cloves", "section": "Produce" },
+        { "name": "Grated Parmesan", "qty": 2, "unit": "oz", "section": "Dairy" },
+        { "name": "Marinara sauce", "qty": 1, "unit": "jar", "note": "optional", "section": "Canned & jarred" },
+        { "name": "Olive oil", "pantry": true },
+        { "name": "Butter", "pantry": true },
+        { "name": "Red pepper flakes", "pantry": true }
+      ]
+    },
+    {
+      "slug": "sheet-pan-blackened-salmon-kale",
+      "name": "Sheet-Pan Blackened Salmon with Garlicky Kale",
+      "style": "oven",
+      "cook_minutes": 30,
+      "servings": 3,
+      "description": "Salmon coated in a smoky, savory spice crust (minus the usual heat) and roasted with garlicky kale that crisps at the edges, finished with a honey-lime glaze. Served over rice.",
+      "included": ["Salmon fillets", "Lacinato kale", "Smoky spice rub", "Honey-lime glaze", "Rice"],
+      "on_the_side": "Cayenne pepper (the original rub has ½ tsp) or hot sauce",
+      "learn": null,
+      "image_url": "https://images.pexels.com/photos/7627407/pexels-photo-7627407.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Once Upon a Chef",
+      "source_url": "https://www.onceuponachef.com/recipes/sheet-pan-blackened-salmon-with-garlicky-kale.html",
+      "tips": [
+        { "kind": "frozen", "text": "Using your frozen salmon? Thaw it overnight in the fridge, or keep it sealed and submerge in cold water for 30–45 minutes. Pat it very dry so the spice rub sticks and browns." },
+        { "kind": "make-extra", "text": "Cook 2 cups of dry rice instead of 1 and refrigerate the extra for the Shrimp Fried Rice later in the week." }
+      ],
+      "ingredients": [
+        { "group": null, "items": [
+          "3 salmon fillets (about 6 oz each), skin on",
+          "1 bunch lacinato (Tuscan) kale, stems removed, leaves torn into bite-size pieces",
+          "2 cloves garlic, minced",
+          "4 tbsp olive oil, divided",
+          "1 cup jasmine or white rice (2 cups if making extra)"
+        ] },
+        { "group": "Smoky spice rub", "note": "Blackened usually means fiery; this version keeps the smoky, savory flavor and leaves the cayenne on the side. Dry mustard and oregano give it a deep, almost Cajun backbone.", "items": [
+          "1 tsp paprika (sweet or smoked)",
+          "1 tsp garlic powder",
+          "1 tsp dry mustard (or 1 tsp Dijon mixed into the oil)",
+          "1 tsp dried oregano",
+          "¾ tsp salt",
+          "¼ tsp black pepper"
+        ] },
+        { "group": "Honey-lime glaze", "note": "Sweet-tart contrast that melts into the hot spice crust and turns it into a glaze.", "items": [
+          "1 tbsp honey",
+          "Zest and juice of 1 lime"
+        ] }
+      ],
+      "steps": [
+        "Start the rice. Rinse the rice in cold water 2–3 times until mostly clear. Add to a pot with 1¼ cups water (2½ cups if making extra) and a pinch of salt. Bring to a boil, cover, turn to low and cook 15 minutes, then rest off the heat, covered, for 10 minutes.",
+        "Heat the oven. Set a rack in the lower-middle position and heat the oven to 400°F. Brush a rimmed sheet pan with 1 tbsp olive oil.",
+        "Season the salmon. Stir the spice rub together until there are no lumps. Pat the salmon very dry with paper towels and set it skin-side down on the pan, spaced apart. Drizzle with 2 tbsp olive oil and sprinkle the rub evenly over the tops and sides, pressing it on so it sticks.",
+        "Prep the kale. In a bowl, toss the kale with the last 1 tbsp olive oil, the minced garlic and a pinch of salt. Squeeze and massage it with your hands for 30 seconds to soften it. Pile it around the salmon without covering the fish; it shrinks a lot as it roasts.",
+        "Roast 12–14 minutes for medium, until the salmon flakes easily when pressed with a fork (125–130°F in the center) and the kale edges are crisp. Thicker fillets may need 2–3 minutes more.",
+        "Glaze right away. As soon as the pan comes out, drizzle the honey over the salmon so it melts into the spice crust, then sprinkle the lime zest over everything and squeeze on the lime juice.",
+        "Serve the salmon and kale over rice, spooning any pan juices on top. Cayenne or hot sauce on the table."
+      ],
+      "leftovers": "Keeps 2–3 days. Eat the salmon cold over the kale and rice, or reheat gently in the microwave at half power for 1–2 minutes.",
+      "shopping": [
+        { "name": "Salmon fillets", "qty": 3, "unit": "fillets", "note": "about 1 lb; frozen is fine", "section": "Meat & seafood" },
+        { "name": "Lacinato kale", "qty": 1, "unit": "bunch", "section": "Produce" },
+        { "name": "Limes", "qty": 1, "unit": "", "section": "Produce" },
+        { "name": "Garlic", "qty": 2, "unit": "cloves", "section": "Produce" },
+        { "name": "Dry mustard", "unit": "", "note": "or use Dijon", "pantry": true },
+        { "name": "Paprika, garlic powder, dried oregano", "pantry": true },
+        { "name": "Honey", "pantry": true },
+        { "name": "Olive oil", "pantry": true },
+        { "name": "White rice", "qty": 1, "unit": "cups", "pantry": true }
+      ]
+    }
+  ]
+}

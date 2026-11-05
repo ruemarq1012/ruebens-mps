@@ -1631,3 +1631,318 @@ fieldset.segmented button.on {
   font-size: 1.3rem;
   font-weight: 800;
 }
+
+/* ---------- Week switcher ---------- */
+.week-switch {
+  margin: 14px 0 0;
+}
+.week-switch .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--saffron-deep);
+  vertical-align: middle;
+}
+
+/* ---------- Chips, tips, learn, flavor hero ---------- */
+.card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  font-size: 0.8rem;
+  font-weight: 650;
+  padding: 4px 10px;
+  border-radius: 999px;
+  line-height: 1.3;
+}
+.chip-hero {
+  background: rgba(245, 183, 0, 0.22);
+  color: var(--ink);
+}
+.chip-have {
+  background: var(--basil-soft);
+  color: var(--basil);
+}
+.learn-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 750;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.learn-box {
+  border: 2px dashed var(--ink);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  display: grid;
+  gap: 6px;
+  background: var(--card);
+}
+.learn-box .learn-tag {
+  justify-self: start;
+}
+.tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.tip {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--paper);
+  border-radius: var(--r);
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+.tip svg {
+  flex: none;
+  margin-top: 2px;
+}
+.tip-make-extra,
+.tip-builds-on {
+  background: var(--basil-soft);
+}
+.cook-scroll .tip,
+.cook-scroll .learn-box {
+  background: var(--card);
+}
+.cook-scroll .tips,
+.cook-scroll .learn-box {
+  margin-top: 12px;
+}
+.group-note {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  font-style: italic;
+  margin: 2px 0 6px;
+}
+.hero-card {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-lg);
+  padding: 16px 18px;
+  margin: 0 0 22px;
+  display: grid;
+  gap: 6px;
+}
+.hero-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+.hero-kicker {
+  color: var(--saffron);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.hero-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.hero-card li {
+  margin: 2px 0;
+}
+.night-list + .hero-card,
+.reorder-list + .hero-card {
+  margin-top: 22px;
+}
+
+/* ---------- Nights reorder ---------- */
+.list-head {
+  margin: 22px 0 0;
+}
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+.reorder-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 8px;
+}
+.reorder-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 8px 6px 8px 10px;
+}
+.night-num.static {
+  position: static;
+  font-size: 0.78rem;
+  padding: 4px 9px;
+  flex: none;
+}
+.reorder-name {
+  flex: 1;
+  display: grid;
+  font-weight: 650;
+  line-height: 1.25;
+  min-width: 0;
+}
+.reorder-name small {
+  color: var(--basil);
+  font-weight: 600;
+}
+.reorder-btns {
+  display: flex;
+  flex: none;
+}
+.reorder-btns .icon-btn:disabled {
+  opacity: 0.25;
+}
+.night-actions .link {
+  padding: 0;
+}
+
+/* ---------- Questionnaire ---------- */
+.quiz-card {
+  margin-top: 4px;
+}
+.quiz-who {
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  color: var(--ink-2);
+}
+.quiz-who span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.quiz-who .pending {
+  color: var(--muted);
+}
+.quiz fieldset {
+  border: 0;
+  padding: 0;
+  margin: 18px 0;
+}
+.quiz legend {
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding: 0;
+}
+.chip-pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip-pick.stack {
+  display: grid;
+}
+.chip-pick button {
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-align: left;
+}
+.chip-pick.stack button {
+  border-radius: var(--r);
+}
+.chip-pick button.on {
+  background: var(--basil);
+  border-color: var(--basil);
+  color: #fff;
+}
+
+/* ---------- Instacart ---------- */
+.instacart-card {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  margin: 14px 0 6px;
+  display: grid;
+  gap: 12px;
+}
+.ic-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.ic-head h3 {
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+.ic-head p {
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+.ic-logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--basil-soft);
+  color: var(--basil);
+  flex: none;
+}
+.btn-ic {
+  background: var(--basil);
+  border-color: var(--basil);
+  color: #fff;
+}
+.instacart-card > .btn {
+  justify-self: start;
+}
+.ic-steps {
+  padding-left: 22px;
+  margin: 14px 0;
+  display: grid;
+  gap: 10px;
+}
+.ic-order .g-list {
+  margin: 14px 0;
+}
+.ic-pick li label {
+  background: var(--paper);
+}
+.sheet-cta {
+  position: sticky;
+  bottom: 0;
+  padding: 12px 0 4px;
+  background: linear-gradient(to top, var(--card) 75%, transparent);
+}
+.ic-links {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+  display: grid;
+  gap: 6px;
+}
+.ic-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--r);
+  background: var(--paper);
+  text-decoration: none;
+  font-weight: 650;
+}
+.ic-links small {
+  display: block;
+  font-weight: 500;
+  color: var(--muted);
+}
+.sheet-tall .ic-order,
+.sheet-tall .ic-connect {
+  padding: 64px 18px 0;
+}

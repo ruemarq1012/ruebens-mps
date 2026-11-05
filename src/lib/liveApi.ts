@@ -72,46 +72,68 @@ export function createLiveApi(url: string, key: string): Api {
       ) as Member[];
       const me = members.find((m) => m.email === e);
       if (!me) return null;
-      const [weeks, weekMeals, meals, ratings, favorites] = await Promise.all([
-        sb.from("weeks").select("*").order("starts_on", { ascending: false }),
-        sb.from("week_meals").select("*"),
-        sb.from("meals").select("*"),
-        sb.from("ratings").select("*"),
-        sb.from("favorites").select("meal_id, member_email"),
-      ]);
+      const [weeks, weekMeals, meals, ratings, favorites, settings] =
+        await Promise.all([
+          sb.from("weeks").select("*").order("starts_on", { ascending: false }),
+          sb.from("week_meals").select("*"),
+          sb.from("meals").select("*"),
+          sb.from("ratings").select("*"),
+          sb.from("favorites").select("meal_id, member_email"),
+          sb.from("member_settings").select("*"),
+        ]);
       const weekList = must(weeks) as Snapshot["weeks"];
-      const current = weekList[0];
-      const [picks, notes, groceries] = current
-        ? await Promise.all([
-            sb
-              .from("picks")
-              .select("week_id, meal_id, member_email")
-              .eq("week_id", current.id),
-            sb
-              .from("notes")
-              .select("week_id, member_email, body")
-              .eq("week_id", current.id),
-            sb
-              .from("grocery_items")
-              .select("*")
-              .eq("week_id", current.id)
-              .order("position"),
-          ])
-        : [
-            { data: [], error: null },
-            { data: [], error: null },
-            { data: [], error: null },
-          ];
+      // Picks, notes and questionnaires matter for the newest couple of weeks;
+      // groceries and cook-mode ticks belong to the week being cooked.
+      const recent = weekList.slice(0, 3).map((w) => w.id);
+      const cooking = weekList.find((w) => w.status === "locked");
+      const none = { data: [], error: null };
+      const [picks, notes, questionnaires, groceries, cookChecks] =
+        await Promise.all([
+          recent.length
+            ? sb
+                .from("picks")
+                .select("week_id, meal_id, member_email")
+                .in("week_id", recent)
+            : none,
+          recent.length
+            ? sb
+                .from("notes")
+                .select("week_id, member_email, body")
+                .in("week_id", recent)
+            : none,
+          recent.length
+            ? sb.from("questionnaires").select("*").in("week_id", recent)
+            : none,
+          cooking
+            ? sb
+                .from("grocery_items")
+                .select("*")
+                .eq("week_id", cooking.id)
+                .order("position")
+            : none,
+          cooking
+            ? sb
+                .from("cook_checks")
+                .select("week_id, meal_id, key, member_email")
+                .eq("week_id", cooking.id)
+            : none,
+        ]);
       return {
         me,
         members,
-        weeks: weekList,
+        weeks: weekList.map((w) => ({ ...w, extras: w.extras ?? {} })),
         weekMeals: must(weekMeals) as Snapshot["weekMeals"],
-        meals: must(meals) as Snapshot["meals"],
+        meals: (must(meals) as Snapshot["meals"]).map((m) => ({
+          ...m,
+          tips: m.tips ?? [],
+        })),
         picks: must(picks) as Snapshot["picks"],
         ratings: must(ratings) as Snapshot["ratings"],
         favorites: must(favorites) as Snapshot["favorites"],
         notes: must(notes) as Snapshot["notes"],
+        questionnaires: must(questionnaires) as Snapshot["questionnaires"],
+        settings: must(settings) as Snapshot["settings"],
+        cookChecks: must(cookChecks) as Snapshot["cookChecks"],
         groceries: (must(groceries) as Snapshot["groceries"]).map((g) => ({
           ...g,
           qty: g.qty == null ? null : Number(g.qty),
@@ -128,6 +150,9 @@ export function createLiveApi(url: string, key: string): Api {
       const channel = sb.channel("household");
       for (const table of [
         "grocery_items",
+        "cook_checks",
+        "questionnaires",
+        "member_settings",
         "picks",
         "ratings",
         "week_meals",
@@ -198,6 +223,58 @@ export function createLiveApi(url: string, key: string): Api {
       );
     },
 
+    async setCookCheck(weekId, mealId, key, on) {
+      if (on)
+        must(
+          await sb.from("cook_checks").upsert({
+            week_id: weekId,
+            meal_id: mealId,
+            key,
+            member_email: myEmail(),
+            updated_at: new Date().toISOString(),
+          }),
+        );
+      else
+        must(
+          await sb
+            .from("cook_checks")
+            .delete()
+            .match({ week_id: weekId, meal_id: mealId, key }),
+        );
+    },
+    async setCookOrder(weekId, mealIds) {
+      must(
+        await sb.rpc("set_cook_order", { p_week: weekId, p_meals: mealIds }),
+      );
+    },
+    async saveQuestionnaire(weekId, answers) {
+      must(
+        await sb.from("questionnaires").upsert({
+          week_id: weekId,
+          member_email: myEmail(),
+          answers,
+          updated_at: new Date().toISOString(),
+        }),
+      );
+    },
+    async setInstacart(connected, zip) {
+      must(
+        await sb.from("member_settings").upsert({
+          member_email: myEmail(),
+          instacart_connected_at: connected ? new Date().toISOString() : null,
+          instacart_zip: zip,
+          updated_at: new Date().toISOString(),
+        }),
+      );
+    },
+    async instacartLink(title, items) {
+      const { data, error } = await sb.functions.invoke("instacart-list", {
+        body: { title, items },
+      });
+      if (error)
+        throw new Error("Instacart didn't respond. Try again in a minute.");
+      return (data as { url?: string | null })?.url ?? null;
+    },
     async loadWeek(menu) {
       must(await sb.rpc("load_week", { p: menu }));
     },

@@ -1,6 +1,21 @@
 import { useApp } from "./context";
-import { Avatar, Icon, MealMeta, Photo, Sheet, Stars } from "./bits";
-import { currentWeek, firstName, hasRecipe } from "../lib/util";
+import {
+  Avatar,
+  Icon,
+  Learn,
+  MealMeta,
+  Photo,
+  Sheet,
+  Stars,
+  Tips,
+} from "./bits";
+import {
+  cookingWeek,
+  firstName,
+  hasRecipe,
+  pickingWeek,
+  sharedWithGroceries,
+} from "../lib/util";
 
 export function MealSheet({
   state,
@@ -34,15 +49,28 @@ function MealDetail({
   const { s, api, run, patch, openCook } = useApp();
   const meal = s.meals.find((m) => m.id === mealId);
   if (!meal) return null;
-  const week = currentWeek(s);
+  const pw = pickingWeek(s);
+  const cw = cookingWeek(s);
+  const inWeek = (wid?: string) =>
+    !!wid &&
+    s.weekMeals.some((w) => w.week_id === wid && w.meal_id === meal.id);
+  // Which week is this meal being looked at in?
+  const week =
+    (weekId && s.weeks.find((w) => w.id === weekId)) ||
+    (inWeek(pw?.id) ? pw : inWeek(cw?.id) ? cw : undefined);
   const wm =
     week &&
     s.weekMeals.find((w) => w.week_id === week.id && w.meal_id === meal.id);
-  const isCurrent = !!wm && (!weekId || weekId === week?.id);
-  const picking = isCurrent && week?.status === "picking";
+  const isCurrent = !!wm && week?.id === cw?.id;
+  const picking = !!wm && week?.status === "picking";
   const mine = s.picks.some(
-    (p) => p.meal_id === meal.id && p.member_email === s.me.email,
+    (p) =>
+      p.week_id === week?.id &&
+      p.meal_id === meal.id &&
+      p.member_email === s.me.email,
   );
+  const isHero = week?.extras?.hero?.used_in.includes(meal.slug);
+  const shared = picking && cw ? sharedWithGroceries(s, meal) : [];
   const fav = s.favorites.some(
     (f) => f.meal_id === meal.id && f.member_email === s.me.email,
   );
@@ -83,6 +111,7 @@ function MealDetail({
                   ? cur.picks.filter(
                       (p) =>
                         !(
+                          p.week_id === week!.id &&
                           p.meal_id === meal.id &&
                           p.member_email === cur.me.email
                         ),
@@ -132,6 +161,23 @@ function MealDetail({
         )}
         <p className="detail-desc">{meal.description}</p>
 
+        {(isHero || shared.length > 0) && (
+          <p className="card-chips">
+            {isHero && (
+              <span className="chip chip-hero">
+                Flavor hero: {week!.extras.hero!.name.toLowerCase()}
+              </span>
+            )}
+            {shared.length > 0 && (
+              <span className="chip chip-have">
+                You already have {shared.join(", ").toLowerCase()}
+              </span>
+            )}
+          </p>
+        )}
+
+        <Learn text={meal.learn} />
+
         {meal.included.length > 0 && (
           <section>
             <h3 className="h-icon">
@@ -163,12 +209,15 @@ function MealDetail({
           </button>
         )}
 
+        <Tips tips={meal.tips} />
+
         {hasRecipe(meal) ? (
           <section className="recipe">
             <h3>Ingredients</h3>
             {meal.ingredients.map((g, i) => (
               <div key={i}>
                 {g.group && <h4>{g.group}</h4>}
+                {g.note && <p className="group-note">{g.note}</p>}
                 <ul>
                   {g.items.map((it) => (
                     <li key={it}>{it}</li>

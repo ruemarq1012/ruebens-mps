@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import type { Meal, Snapshot } from "../lib/types";
-import { STYLE_LABEL } from "../lib/util";
+import type { Meal, Snapshot, Tip, Week } from "../lib/types";
 
 /* ---------- Icons (24px line icons) ---------- */
 
@@ -83,6 +82,14 @@ const paths: Record<string, ReactNode> = {
   share: <path d="M12 4v11M8 7.5 12 4l4 3.5M6 11v8h12v-8" />,
   back: <path d="M15 5 8 12l7 7" />,
   play: <path d="M8 5.5v13l10.5-6.5L8 5.5Z" />,
+  snow: (
+    <path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 6l2.5-1.5M9.5 19.5 12 18l2.5 1.5" />
+  ),
+  spark: (
+    <path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9L12 3.5ZM18.5 16l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7.7-1.8Z" />
+  ),
+  up: <path d="M6 15l6-6 6 6" />,
+  down: <path d="M6 9l6 6 6-6" />,
   leftovers: (
     <>
       <path d="M5 9h14l-1.5 10h-11L5 9Z" />
@@ -190,11 +197,89 @@ export function MealMeta({ meal }: { meal: Meal }) {
         <Icon name="clock" size={16} />
         {meal.cook_minutes} min
       </span>
-      <span className={`style-tag style-${meal.style}`}>
-        {STYLE_LABEL[meal.style]}
+      <span className="meta-item">
+        <Icon name="people" size={16} />
+        {meal.servings} servings
       </span>
-      <span className="meta-item">{meal.servings} servings</span>
+      {meal.learn && <span className="learn-tag">Learn something new</span>}
     </p>
+  );
+}
+
+const TIP_LABEL: Record<Tip["kind"], { icon: string; label: string }> = {
+  "make-extra": { icon: "leftovers", label: "Make extra" },
+  "builds-on": { icon: "cart", label: "Uses what you have" },
+  frozen: { icon: "snow", label: "Using frozen?" },
+  "prep-ahead": { icon: "clock", label: "Prep ahead" },
+  tip: { icon: "spark", label: "Tip" },
+};
+
+export function Tips({ tips }: { tips: Tip[] }) {
+  if (!tips?.length) return null;
+  return (
+    <ul className="tips">
+      {tips.map((t, i) => {
+        const l = TIP_LABEL[t.kind] ?? TIP_LABEL.tip;
+        return (
+          <li key={i} className={`tip tip-${t.kind}`}>
+            <Icon name={l.icon} size={18} />
+            <span>
+              <b>{l.label}:</b> {t.text}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export function Learn({ text }: { text: string | null }) {
+  if (!text) return null;
+  return (
+    <div className="learn-box">
+      <span className="learn-tag">Learn something new</span>
+      <p>{text}</p>
+    </div>
+  );
+}
+
+export function HeroCard({
+  s,
+  week,
+  compact = false,
+}: {
+  s: Snapshot;
+  week: Week;
+  compact?: boolean;
+}) {
+  const hero = week.extras?.hero;
+  if (!hero) return null;
+  const used = hero.used_in
+    .map((slug) => s.meals.find((m) => m.slug === slug)?.name)
+    .filter(Boolean);
+  return (
+    <section className="hero-card">
+      <p className="hero-kicker">This week's flavor hero</p>
+      <h3>{hero.name}</h3>
+      <p>{hero.why}</p>
+      {used.length > 0 && (
+        <p className="small">
+          <b>Used in:</b> {used.join(", ")}
+        </p>
+      )}
+      {!compact && hero.more_uses.length > 0 && (
+        <>
+          <p className="small">
+            <b>After this week, try it in:</b>
+          </p>
+          <ul className="small">
+            {hero.more_uses.map((u) => (
+              <li key={u}>{u}</li>
+            ))}
+          </ul>
+        </>
+      )}
+    </section>
   );
 }
 
