@@ -58,7 +58,7 @@ Each week Claude delivers one JSON file (saved in `menus/YYYY-MM-DD.json`). Load
 - No raw onion, no cilantro, and never salmon. Mild by default; heat goes in `on_the_side`.
 - Go light on chicken (one chicken dish a week at most).
 - If pork is on the menu, include two pork recipes so they can compare.
-- Noodles, grain bowls, Mexican and tofu are always welcome.
+- Noodles, grain bowls, soups, Mexican and tofu are always welcome.
 - No NYT Cooking recipes (no subscription).
 - Bold flavor: every meal has a sauce, glaze, crema or finish with its own ingredient group and a `note` explaining it.
 - Steps are descriptive: heat level, time, and what "done" looks like.
