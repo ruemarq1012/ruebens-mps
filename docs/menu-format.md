@@ -1,6 +1,6 @@
 # Weekly menu format
 
-Each week Claude delivers one JSON file (saved in `menus/YYYY-MM-DD.json`). Load it in the app under **Kitchen → Load a new week**. Loading a new week closes the previous one.
+Each week Claude delivers one JSON file (saved in `menus/YYYY-MM-DD.json`). Load it in the app under **Kitchen → Load a new week**. Loading a new week opens it for picks; the week being cooked stays active until the new one is locked in.
 
 ```jsonc
 {
