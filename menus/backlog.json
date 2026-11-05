@@ -1,0 +1,137 @@
+{
+  "note": "Meals saved for upcoming menus. Gnocchi requested for the Week of Nov 15.",
+  "meals": [
+    {
+      "slug": "sheet-pan-gnocchi-sausage-peppers",
+      "name": "Sheet-Pan Gnocchi with Sausage and Peppers",
+      "style": "oven",
+      "cook_minutes": 40,
+      "servings": 3,
+      "description": "No boiling: gnocchi roasts right on the pan with Italian sausage, sweet peppers and red onion until crispy outside and pillowy inside, then gets tossed with garlic butter, Parmesan and lemon. Warm marinara on the side for dipping.",
+      "included": [
+        "Potato gnocchi",
+        "Italian sausage",
+        "Bell peppers",
+        "Red onion (roasted)",
+        "Parmesan",
+        "Marinara"
+      ],
+      "on_the_side": "Hot Italian sausage instead of mild, or red pepper flakes",
+      "learn": null,
+      "image_url": "https://images.pexels.com/photos/6659628/pexels-photo-6659628.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "image_credit": "Photo from Pexels",
+      "source_name": "Cook the Story",
+      "source_url": "https://cookthestory.com/sheet-pan-sausage-and-peppers-with-gnocchi/",
+      "tips": [
+        {
+          "kind": "tip",
+          "text": "Buy shelf-stable gnocchi (in the pasta aisle, usually vacuum-packed). It crisps best on a sheet pan and doesn't need boiling. Frozen works too, straight from the freezer."
+        }
+      ],
+      "ingredients": [
+        {
+          "group": null,
+          "items": [
+            "1 lb shelf-stable potato gnocchi",
+            "12 oz mild Italian sausage links, cut into 1-inch pieces",
+            "2 bell peppers, sliced ½ inch thick",
+            "1 red onion, cut into ½-inch wedges",
+            "3 tbsp olive oil",
+            "½ tsp salt and ½ tsp black pepper",
+            "½ cup marinara, warmed, for serving (optional)"
+          ]
+        },
+        {
+          "group": "Garlic-Parmesan finish",
+          "note": "Roasting gives you crispy, browned edges; this finish gives it the punch. Garlic butter and Parmesan melt onto the hot gnocchi and cling like a light sauce, and lemon and parsley wake everything up.",
+          "items": [
+            "1 tbsp butter",
+            "1 clove garlic, finely grated",
+            "½ cup grated Parmesan",
+            "2 tbsp chopped flat-leaf parsley",
+            "Juice of ½ lemon"
+          ]
+        }
+      ],
+      "steps": [
+        "Heat the oven. Set a rack in the upper-middle position and heat the oven to 425°F. That's a little hotter than the original recipe, for crispier gnocchi.",
+        "Toss on the pan. On a large rimmed sheet pan, toss the gnocchi (break apart any that are stuck together), peppers and onion with the olive oil, salt and pepper. Spread everything in a single layer; crowded gnocchi steam instead of crisping, so use two pans if needed.",
+        "Add the sausage. Nestle the sausage pieces in among the gnocchi and vegetables.",
+        "Roast and flip. Roast 15 minutes. Take the pan out, flip and stir everything with a spatula, then roast 12–15 minutes more, until the gnocchi are golden with crisp edges, the onion is soft and sweet, and the sausage is browned with no pink inside (160°F).",
+        "Make the garlic butter. While it roasts, microwave the butter with the grated garlic for 20–30 seconds, until melted and fragrant. Warm the marinara too, if using.",
+        "Finish on the pan. Right out of the oven, drizzle the garlic butter over everything, scatter on the Parmesan, and toss so the cheese melts onto the hot gnocchi. Squeeze the lemon over and sprinkle with parsley.",
+        "Serve with warm marinara on the side for spooning over or dipping."
+      ],
+      "leftovers": "Keeps 3 days. Reheat on a sheet pan at 400°F for 8–10 minutes to bring back the crispy edges (the microwave makes gnocchi soft).",
+      "shopping": [
+        {
+          "name": "Mild Italian sausage",
+          "qty": 12,
+          "unit": "oz",
+          "section": "Meat & seafood"
+        },
+        {
+          "name": "Shelf-stable potato gnocchi",
+          "qty": 1,
+          "unit": "lb",
+          "section": "Pasta & grains"
+        },
+        {
+          "name": "Bell peppers",
+          "qty": 2,
+          "unit": "",
+          "section": "Produce"
+        },
+        {
+          "name": "Red onion",
+          "qty": 1,
+          "unit": "",
+          "section": "Produce"
+        },
+        {
+          "name": "Lemons",
+          "qty": 1,
+          "unit": "",
+          "section": "Produce"
+        },
+        {
+          "name": "Flat-leaf parsley",
+          "unit": "bunch",
+          "note": "a few sprigs",
+          "section": "Produce"
+        },
+        {
+          "name": "Garlic",
+          "qty": 1,
+          "unit": "cloves",
+          "section": "Produce"
+        },
+        {
+          "name": "Grated Parmesan",
+          "qty": 2,
+          "unit": "oz",
+          "section": "Dairy"
+        },
+        {
+          "name": "Marinara sauce",
+          "qty": 1,
+          "unit": "jar",
+          "note": "optional",
+          "section": "Canned & jarred"
+        },
+        {
+          "name": "Olive oil",
+          "pantry": true
+        },
+        {
+          "name": "Butter",
+          "pantry": true
+        },
+        {
+          "name": "Red pepper flakes",
+          "pantry": true
+        }
+      ]
+    }
+  ]
+}
