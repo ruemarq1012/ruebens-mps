@@ -127,12 +127,12 @@ export function Icon({
 /* ---------- Photo with an illustrated fallback ---------- */
 
 const FALLBACK_TINTS = [
-  "#E9C46A",
-  "#8FB996",
-  "#E8A87C",
-  "#B8A1D9",
-  "#9CC5D9",
-  "#D9B38C",
+  "#E7B49A",
+  "#A9D3C9",
+  "#8FB8DE",
+  "#C9DCE8",
+  "#B9D6C2",
+  "#E3CDB0",
 ];
 
 export function Photo({
@@ -164,10 +164,10 @@ export function Photo({
             ry="14"
             fill="rgba(255,255,255,.55)"
           />
-          <path d="M22 46h76a38 26 0 0 1-76 0Z" fill="rgba(42,26,49,.18)" />
+          <path d="M22 46h76a38 26 0 0 1-76 0Z" fill="rgba(30,58,70,.18)" />
           <path
             d="M50 30c0-5 4-6 4-11M62 30c0-5 4-6 4-11M74 30c0-5 4-6 4-11"
-            stroke="rgba(42,26,49,.35)"
+            stroke="rgba(30,58,70,.35)"
             strokeWidth="3"
             fill="none"
             strokeLinecap="round"
